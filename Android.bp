@@ -19,6 +19,9 @@ android_app {
     system_ext_specific: true,
     privileged: true,
     privapp_allowlist: "org.catalyxx.lab.xml",
+    optimize: {
+        proguard_flags_files: ["proguard.flags"],
+    },
     static_libs: [
         "androidx.core_core-ktx",
         "androidx.preference_preference",

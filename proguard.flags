@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Project Catalyxx
+# SPDX-License-Identifier: Apache-2.0
+
+# The Lab's pages and preferences are named only in res/xml: android:fragment
+# and custom preference tags, which R8 doesn't follow. Without this it strips
+# them and the Lab crashes with ClassNotFoundException when a page opens.
+-keep class org.catalyxx.lab.** { *; }
