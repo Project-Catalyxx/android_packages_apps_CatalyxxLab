@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Project Catalyxx
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/lab_title">
+
+    <com.android.settingslib.widget.TopIntroPreference
+        android:key="lab_intro"
+        android:title="@string/lab_tagline" />
+
+    <!-- One entry per feature area; each opens its own page -->
+    <Preference
+        android:key="volume_dialog"
+        android:title="@string/volume_dialog_title"
+        android:summary="@string/volume_dialog_summary"
+        android:icon="@drawable/ic_volume"
+        android:fragment="org.catalyxx.lab.VolumeDialogFragment" />
+</PreferenceScreen>

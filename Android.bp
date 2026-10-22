@@ -1,0 +1,30 @@
+//
+// SPDX-FileCopyrightText: 2026 Project Catalyxx
+// SPDX-License-Identifier: Apache-2.0
+//
+
+// Catalyxx Lab: Project Catalyxx's own settings. Settings shows it as a card on
+// its home screen (see AndroidManifest.xml), so it needs no Settings fork. It
+// is laid out like LineageParts, which Settings hosts the same way.
+android_app {
+    name: "CatalyxxLab",
+    defaults: ["SettingsLibDefaults"],
+    srcs: ["src/**/*.kt"],
+    resource_dirs: ["res"],
+    manifest: "AndroidManifest.xml",
+    platform_apis: true,
+    // Platform-signed and privileged: Settings only shows tiles from system
+    // apps, and the volume dialog's haptics switch is a Settings.Secure key.
+    certificate: "platform",
+    system_ext_specific: true,
+    privileged: true,
+    privapp_allowlist: "org.catalyxx.lab.xml",
+    static_libs: [
+        "androidx.core_core-ktx",
+        "androidx.preference_preference",
+        "LineagePreferenceLib",
+        "SettingsLibCollapsingToolbarBaseActivity",
+        "SettingsLibSettingsTheme",
+        "SettingsLibTopIntroPreference",
+    ],
+}

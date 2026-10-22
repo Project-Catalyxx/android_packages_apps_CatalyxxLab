@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Project Catalyxx
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- The Settings home screen card and the Lab's own title -->
+    <string name="lab_title">Catalyxx Lab</string>
+    <string name="lab_tagline">Mix your own formula</string>
+
+    <!-- Volume dialog page -->
+    <string name="volume_dialog_title">Volume dialog</string>
+    <string name="volume_dialog_summary">Slider gradient, percentage and haptics</string>
+
+    <string name="gradient_category_title">Slider gradient</string>
+    <string name="gradient_title">Gradient</string>
+    <string name="gradient_summary">Color the volume slider with a gradient</string>
+    <string name="gradient_colors_title">Gradient colors</string>
+    <string name="gradient_colors_theme">Theme colors</string>
+    <string name="gradient_colors_custom">Custom colors</string>
+    <!-- The gradient runs from the quiet end of the slider to the loud end -->
+    <string name="gradient_start_title">Quiet end</string>
+    <string name="gradient_end_title">Loud end</string>
+    <!-- Summary for a color that isn't one of the presets, e.g. "Custom (#12AB34)" -->
+    <string name="custom_color_summary">Custom (<xliff:g id="color" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%1$s</xliff:g>)</string>
+
+    <string name="dialog_category_title">Dialog</string>
+    <string name="percentage_title">Volume percentage</string>
+    <string name="percentage_summary">Show the media volume in percent under the slider</string>
+    <string name="haptics_title">Haptic feedback</string>
+    <string name="haptics_summary">Vibrate while you drag the volume slider</string>
+
+    <!-- Color presets -->
+    <string name="color_catalyxx_lavender">Catalyxx lavender</string>
+    <string name="color_catalyxx_violet">Catalyxx violet</string>
+    <string name="color_catalyxx_purple">Catalyxx purple</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_cyan">Cyan</string>
+    <string name="color_teal">Teal</string>
+    <string name="color_green">Green</string>
+    <string name="color_yellow">Yellow</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_red">Red</string>
+    <string name="color_pink">Pink</string>
+    <string name="color_white">White</string>
+</resources>

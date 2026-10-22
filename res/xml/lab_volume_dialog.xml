@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Project Catalyxx
+     SPDX-License-Identifier: Apache-2.0
+
+     Each key is the Settings key SystemUI reads, so a change shows the next
+     time the volume dialog opens. A defaultValue is only written when the key
+     is still unset; the switches' are SystemUI's own fallbacks.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:title="@string/volume_dialog_title">
+
+    <PreferenceCategory
+        android:key="gradient_category"
+        android:title="@string/gradient_category_title">
+
+        <!-- Settings.System.VOLUME_SLIDER_GRADIENT -->
+        <lineageos.preference.SystemSettingSwitchPreference
+            android:key="volume_slider_gradient"
+            android:title="@string/gradient_title"
+            android:summary="@string/gradient_summary"
+            android:defaultValue="false" />
+
+        <!-- Settings.System.CUSTOM_GRADIENT_COLOR_MODE -->
+        <org.catalyxx.lab.SystemSettingIntListPreference
+            android:key="custom_gradient_color_mode"
+            android:title="@string/gradient_colors_title"
+            android:entries="@array/gradient_mode_entries"
+            android:entryValues="@array/gradient_mode_values"
+            android:defaultValue="0"
+            android:dependency="volume_slider_gradient"
+            app:useSimpleSummaryProvider="true" />
+
+        <!-- Settings.System.CUSTOM_GRADIENT_START_COLOR and _END_COLOR. Shown
+             only for custom colors; the defaults are the Catalyxx gradient. -->
+        <org.catalyxx.lab.SystemSettingColorListPreference
+            android:key="custom_gradient_start_color"
+            android:title="@string/gradient_start_title"
+            android:entries="@array/color_entries"
+            android:entryValues="@array/color_values"
+            android:defaultValue="#FFCFBAFF"
+            android:dependency="volume_slider_gradient" />
+
+        <org.catalyxx.lab.SystemSettingColorListPreference
+            android:key="custom_gradient_end_color"
+            android:title="@string/gradient_end_title"
+            android:entries="@array/color_entries"
+            android:entryValues="@array/color_values"
+            android:defaultValue="#FFA100F1"
+            android:dependency="volume_slider_gradient" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="dialog_category"
+        android:title="@string/dialog_category_title">
+
+        <!-- Settings.System.SHOW_VOLUME_PERCENTAGE -->
+        <lineageos.preference.SystemSettingSwitchPreference
+            android:key="show_volume_percentage"
+            android:title="@string/percentage_title"
+            android:summary="@string/percentage_summary"
+            android:defaultValue="false" />
+
+        <!-- Settings.Secure.VOLUME_DIALOG_HAPTIC_FEEDBACK -->
+        <lineageos.preference.SecureSettingSwitchPreference
+            android:key="volume_dialog_haptic_feedback"
+            android:title="@string/haptics_title"
+            android:summary="@string/haptics_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

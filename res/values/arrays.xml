@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Project Catalyxx
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Settings.System.CUSTOM_GRADIENT_COLOR_MODE: 0 = the theme's primary to
+         secondary, 1 = CUSTOM_GRADIENT_START_COLOR to _END_COLOR -->
+    <string-array name="gradient_mode_entries" translatable="false">
+        <item>@string/gradient_colors_theme</item>
+        <item>@string/gradient_colors_custom</item>
+    </string-array>
+    <string-array name="gradient_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <!-- Gradient color presets, stored as ARGB ints. The first three are the
+         Catalyxx colors: the gradient's default quiet and loud ends, and the
+         system palette's seed. The rest are Material 500 tones. -->
+    <string-array name="color_entries" translatable="false">
+        <item>@string/color_catalyxx_lavender</item>
+        <item>@string/color_catalyxx_violet</item>
+        <item>@string/color_catalyxx_purple</item>
+        <item>@string/color_blue</item>
+        <item>@string/color_cyan</item>
+        <item>@string/color_teal</item>
+        <item>@string/color_green</item>
+        <item>@string/color_yellow</item>
+        <item>@string/color_orange</item>
+        <item>@string/color_red</item>
+        <item>@string/color_pink</item>
+        <item>@string/color_white</item>
+    </string-array>
+    <string-array name="color_values" translatable="false">
+        <item>#FFCFBAFF</item>
+        <item>#FFA100F1</item>
+        <item>#FF874EFF</item>
+        <item>#FF2196F3</item>
+        <item>#FF00BCD4</item>
+        <item>#FF009688</item>
+        <item>#FF4CAF50</item>
+        <item>#FFFFEB3B</item>
+        <item>#FFFF9800</item>
+        <item>#FFF44336</item>
+        <item>#FFE91E63</item>
+        <item>#FFFFFFFF</item>
+    </string-array>
+</resources>
