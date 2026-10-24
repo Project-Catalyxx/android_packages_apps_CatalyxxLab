@@ -17,4 +17,15 @@
         android:summary="@string/volume_dialog_summary"
         android:icon="@drawable/ic_volume"
         android:fragment="org.catalyxx.lab.VolumeDialogFragment" />
+
+    <!-- RisingOS's Spoofing page, built into Settings (PersonalizationsManifest.xml) -->
+    <Preference
+        android:key="spoofing"
+        android:title="@string/spoofing_title"
+        android:summary="@string/spoofing_summary"
+        android:icon="@drawable/ic_spoofing">
+        <intent
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.Settings$PersonalizationsSpoofActivity" />
+    </Preference>
 </PreferenceScreen>

@@ -12,6 +12,10 @@
     <string name="volume_dialog_title">Volume dialog</string>
     <string name="volume_dialog_summary">Slider gradient, percentage and haptics</string>
 
+    <!-- Spoofing page (opens in Settings) -->
+    <string name="spoofing_title">Spoofing</string>
+    <string name="spoofing_summary">Play Integrity, keybox and Pixel props</string>
+
     <string name="gradient_category_title">Slider gradient</string>
     <string name="gradient_title">Gradient</string>
     <string name="gradient_summary">Color the volume slider with a gradient</string>
