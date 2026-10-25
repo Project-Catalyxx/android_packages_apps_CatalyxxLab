@@ -158,6 +158,7 @@
                     style="@style/LabCardClock"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textFontWeight="200"
                     android:textSize="60sp" />
 
                 <ImageView
@@ -198,12 +199,14 @@
                 android:foreground="@drawable/lab_wallpaper_scrim"
                 android:importantForAccessibility="no" />
 
+            <!-- dp, not sp: it is a miniature lock screen, and two lines in sp
+                 would outgrow the preview at large font sizes -->
             <TextClock
                 style="@style/LabCardClock"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textSize="24sp" />
+                android:textSize="28dp" />
         </FrameLayout>
 
         <LinearLayout
