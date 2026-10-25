@@ -63,6 +63,16 @@
     <string name="haptics_title">Haptic feedback</string>
     <string name="haptics_summary">Vibrate while you drag the volume slider</string>
 
+    <string name="scrolling_category_title">Scrolling</string>
+    <string name="edge_haptics_title">Edge haptics</string>
+    <!-- Strengths of the bump felt when a flung list hits its end -->
+    <string name="edge_haptics_off">Off</string>
+    <string name="edge_haptics_texture_tick">Light tick</string>
+    <string name="edge_haptics_tick">Tick</string>
+    <string name="edge_haptics_click">Click</string>
+    <string name="edge_haptics_double_click">Double click</string>
+    <string name="edge_haptics_heavy_click">Heavy click</string>
+
     <string name="tiles_category_title">Tiles</string>
     <string name="color_pop_title">Color pop</string>
     <string name="color_pop_summary">Give each tile that\'s on a color of its own</string>

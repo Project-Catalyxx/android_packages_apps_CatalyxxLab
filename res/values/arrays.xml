@@ -4,6 +4,25 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
+    <!-- Settings.System.EDGE_SCROLLING_HAPTICS_INTENSITY: 0 = off, 1-5 are
+         VibrationUtils' effects, weakest first -->
+    <string-array name="edge_haptics_entries" translatable="false">
+        <item>@string/edge_haptics_off</item>
+        <item>@string/edge_haptics_texture_tick</item>
+        <item>@string/edge_haptics_tick</item>
+        <item>@string/edge_haptics_click</item>
+        <item>@string/edge_haptics_double_click</item>
+        <item>@string/edge_haptics_heavy_click</item>
+    </string-array>
+    <string-array name="edge_haptics_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
     <!-- Settings.System.CUSTOM_GRADIENT_COLOR_MODE: 0 = the theme's primary to
          secondary, 1 = CUSTOM_GRADIENT_START_COLOR to _END_COLOR -->
     <string-array name="gradient_mode_entries" translatable="false">

@@ -69,4 +69,19 @@
             android:summary="@string/haptics_summary"
             android:defaultValue="true" />
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="scrolling_category"
+        android:title="@string/scrolling_category_title">
+
+        <!-- Settings.System.EDGE_SCROLLING_HAPTICS_INTENSITY, read by every
+             app's EdgeEffect, so a change shows in lists made after it -->
+        <org.catalyxx.lab.SystemSettingIntListPreference
+            android:key="edge_scrolling_haptics_intensity"
+            android:title="@string/edge_haptics_title"
+            android:entries="@array/edge_haptics_entries"
+            android:entryValues="@array/edge_haptics_values"
+            android:defaultValue="1"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
 </PreferenceScreen>
