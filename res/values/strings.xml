@@ -42,6 +42,8 @@
     <!-- Spoofing page (opens in Settings) -->
     <string name="spoofing_title">Spoofing</string>
     <string name="spoofing_summary">Play Integrity, keybox and Pixel props</string>
+    <string name="power_menu_title">Power menu</string>
+    <string name="power_menu_summary">Menu items and advanced restart</string>
 
     <string name="gradient_category_title">Slider gradient</string>
     <string name="gradient_title">Gradient</string>

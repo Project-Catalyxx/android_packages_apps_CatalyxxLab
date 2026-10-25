@@ -23,7 +23,7 @@ Matrixx Lab's, recolored to Catalyxx's purples with
 | Misc | `lab_misc.xml` | opens Settings' Spoofing page |
 | Sound | `lab_sound.xml` | `Settings.System.VOLUME_SLIDER_GRADIENT`, `CUSTOM_GRADIENT_COLOR_MODE`, `CUSTOM_GRADIENT_START_COLOR`, `CUSTOM_GRADIENT_END_COLOR`, `SHOW_VOLUME_PERCENTAGE`; `Settings.Secure.VOLUME_DIALOG_HAPTIC_FEEDBACK` |
 | Notifications | `lab_notifications.xml` | nothing yet |
-| Buttons | `lab_buttons.xml` | nothing yet |
+| Buttons | `lab_buttons.xml` | opens LineageOS's Power menu page (LineageParts) |
 | About | `lab_about.xml` | shows the `ro.catalyxx.*` version properties |
 
 The features themselves live in Project Catalyxx's `frameworks/base`; the Lab only
