@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Project Catalyxx
+     SPDX-License-Identifier: Apache-2.0
+
+     AboutFragment fills in the version rows from the ro.catalyxx.* properties
+     vendor/catalyxx sets.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/about_title">
+
+    <com.android.settingslib.widget.TopIntroPreference
+        android:key="about_intro"
+        android:title="@string/about_intro" />
+
+    <Preference
+        android:key="ro.catalyxx.display.version"
+        android:title="@string/about_version"
+        android:selectable="false" />
+
+    <Preference
+        android:key="ro.catalyxx.codename"
+        android:title="@string/about_codename"
+        android:selectable="false" />
+
+    <Preference
+        android:key="ro.catalyxx.build.version"
+        android:title="@string/about_build"
+        android:selectable="false" />
+
+    <Preference
+        android:key="ro.catalyxx.maintainer"
+        android:title="@string/about_maintainer"
+        android:selectable="false" />
+
+    <Preference
+        android:key="source"
+        android:title="@string/about_source"
+        android:summary="@string/about_source_summary">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://github.com/Project-Catalyxx" />
+    </Preference>
+</PreferenceScreen>

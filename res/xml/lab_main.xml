@@ -10,29 +10,9 @@
         android:key="lab_intro"
         android:title="@string/lab_tagline" />
 
-    <!-- One entry per feature area; each opens its own page -->
-    <Preference
-        android:key="volume_dialog"
-        android:title="@string/volume_dialog_title"
-        android:summary="@string/volume_dialog_summary"
-        android:icon="@drawable/ic_volume"
-        android:fragment="org.catalyxx.lab.VolumeDialogFragment" />
-
-    <Preference
-        android:key="quick_settings"
-        android:title="@string/quick_settings_title"
-        android:summary="@string/quick_settings_summary"
-        android:icon="@drawable/ic_quick_settings"
-        android:fragment="org.catalyxx.lab.QuickSettingsFragment" />
-
-    <!-- RisingOS's Spoofing page, built into Settings (PersonalizationsManifest.xml) -->
-    <Preference
-        android:key="spoofing"
-        android:title="@string/spoofing_title"
-        android:summary="@string/spoofing_summary"
-        android:icon="@drawable/ic_spoofing">
-        <intent
-            android:targetPackage="com.android.settings"
-            android:targetClass="com.android.settings.Settings$PersonalizationsSpoofActivity" />
-    </Preference>
+    <!-- One card per feature area; LabFragment opens each card's page -->
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="lab_dashboard"
+        android:layout="@layout/lab_dashboard"
+        android:selectable="false" />
 </PreferenceScreen>

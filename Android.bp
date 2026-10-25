@@ -27,7 +27,10 @@ android_app {
         "androidx.preference_preference",
         "LineagePreferenceLib",
         "SettingsLibCollapsingToolbarBaseActivity",
+        "SettingsLibLayoutPreference",
         "SettingsLibSettingsTheme",
         "SettingsLibTopIntroPreference",
+        // The front page's card animations
+        "lottie",
     ],
 }

@@ -8,6 +8,8 @@
 
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <!-- The front page shows the wallpaper behind its clocks -->
+    <uses-permission android:name="android.permission.READ_WALLPAPER_INTERNAL" />
 
     <application
         android:icon="@drawable/ic_lab"

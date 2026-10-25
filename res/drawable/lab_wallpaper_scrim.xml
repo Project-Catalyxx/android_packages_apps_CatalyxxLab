@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Project Catalyxx
+     SPDX-License-Identifier: Apache-2.0
+
+     Darkens the wallpaper towards the edges so the clock and labels stay
+     readable on any wallpaper.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:type="radial"
+        android:gradientRadius="100%p"
+        android:startColor="#14000000"
+        android:endColor="#66000000" />
+</shape>

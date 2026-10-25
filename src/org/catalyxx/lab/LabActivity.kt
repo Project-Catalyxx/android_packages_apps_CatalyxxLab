@@ -33,13 +33,18 @@ class LabActivity :
         pref: Preference,
     ): Boolean {
         val name = pref.fragment ?: return false
+        openPage(name, pref.extras)
+        return true
+    }
+
+    /** Opens the page [name], a fragment class, in place of this one; Back returns here. */
+    fun openPage(name: String, args: Bundle? = null) {
         val fragment = supportFragmentManager.fragmentFactory.instantiate(classLoader, name)
-        fragment.arguments = pref.extras
+        fragment.arguments = args
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.content_frame, fragment)
             .addToBackStack(null)
             .commit()
-        return true
     }
 }

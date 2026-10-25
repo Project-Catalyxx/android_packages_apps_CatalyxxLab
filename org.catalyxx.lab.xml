@@ -5,6 +5,7 @@
 -->
 <permissions>
     <privapp-permissions package="org.catalyxx.lab">
+        <permission name="android.permission.READ_WALLPAPER_INTERNAL" />
         <permission name="android.permission.WRITE_SECURE_SETTINGS" />
     </privapp-permissions>
 </permissions>

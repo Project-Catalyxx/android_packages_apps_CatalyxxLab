@@ -9,26 +9,40 @@ way it hosts LineageOS's LineageParts.
 
 ## Pages
 
-| Page | Settings it controls |
-|---|---|
-| Volume dialog | `Settings.System.VOLUME_SLIDER_GRADIENT`, `CUSTOM_GRADIENT_COLOR_MODE`, `CUSTOM_GRADIENT_START_COLOR`, `CUSTOM_GRADIENT_END_COLOR`, `SHOW_VOLUME_PERCENTAGE`; `Settings.Secure.VOLUME_DIALOG_HAPTIC_FEEDBACK` |
-| Quick settings | `Settings.System.QS_COLOR_POP` |
+The front page (`res/layout/lab_dashboard.xml`, after Matrixx Lab's dashboard)
+has a card per feature area; each opens its page. The cards' animations are
+Matrixx Lab's, recolored to Catalyxx's purples with
+`catalyxx-drafts/tools/recolor_lottie.py`.
+
+| Card | Page | Settings it controls |
+|---|---|---|
+| Status bar | `lab_status_bar.xml` | nothing yet |
+| Quick settings | `lab_quick_settings.xml` | `Settings.System.QS_COLOR_POP` |
+| User interface | `lab_user_interface.xml` | nothing yet |
+| Lock screen | `lab_lockscreen.xml` | nothing yet |
+| Misc | `lab_misc.xml` | opens Settings' Spoofing page |
+| Sound | `lab_sound.xml` | `Settings.System.VOLUME_SLIDER_GRADIENT`, `CUSTOM_GRADIENT_COLOR_MODE`, `CUSTOM_GRADIENT_START_COLOR`, `CUSTOM_GRADIENT_END_COLOR`, `SHOW_VOLUME_PERCENTAGE`; `Settings.Secure.VOLUME_DIALOG_HAPTIC_FEEDBACK` |
+| Notifications | `lab_notifications.xml` | nothing yet |
+| Buttons | `lab_buttons.xml` | nothing yet |
+| About | `lab_about.xml` | shows the `ro.catalyxx.*` version properties |
 
 The features themselves live in Project Catalyxx's `frameworks/base`; the Lab only
 reads and writes their settings. SystemUI picks a volume change up the next time
 the volume dialog opens, and a Color pop change straight away.
 
-## Adding a page
+## Adding a feature
 
-1. A preference XML in `res/xml/lab_<page>.xml`, titled with the page's name.
+1. Its settings go on the page of its card, in `res/xml/lab_<page>.xml`; drop
+   that page's "coming soon" line when its first feature lands.
    Switches for `Settings.System` and `Settings.Secure` keys are
    `lineageos.preference.SystemSettingSwitchPreference` and
    `SecureSettingSwitchPreference`; lists of ints in `Settings.System` are
    `org.catalyxx.lab.SystemSettingIntListPreference`, and colors
    `SystemSettingColorListPreference`. Give each the same default SystemUI
    assumes when the key is unset.
-2. A fragment in `LabFragments.kt`: `class <Page>Fragment : LabPageFragment(R.xml.lab_<page>)`.
-3. An entry for it in `res/xml/lab_main.xml`.
+2. A feature area of its own gets a card in `lab_dashboard.xml`, a page XML, a
+   fragment in `LabFragments.kt` (`class <Page>Fragment : LabPageFragment(R.xml.lab_<page>)`)
+   and an entry in `LabFragment.PAGES`.
 
 Keep pages device-neutral: every Catalyxx device gets the same Lab.
 

@@ -6,10 +6,20 @@
 package org.catalyxx.lab
 
 import android.os.Bundle
+import android.os.SystemProperties
+import android.view.View
+import android.widget.TextView
+import androidx.annotation.IdRes
+import androidx.annotation.RawRes
+import androidx.annotation.StringRes
 import androidx.annotation.XmlRes
+import androidx.fragment.app.Fragment
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import com.airbnb.lottie.LottieAnimationView
+import com.airbnb.lottie.LottieDrawable
+import com.android.settingslib.widget.LayoutPreference
 
 /** A Lab page: one preference XML, whose title becomes the toolbar's. */
 abstract class LabPageFragment(@XmlRes private val xml: Int) : PreferenceFragmentCompat() {
@@ -25,11 +35,106 @@ abstract class LabPageFragment(@XmlRes private val xml: Int) : PreferenceFragmen
     }
 }
 
-/** The Lab's front page: one entry per feature area. */
-class LabFragment : LabPageFragment(R.xml.lab_main)
+/**
+ * The Lab's front page: a card per feature area (lab_dashboard.xml, after Matrixx Lab's
+ * dashboard), each opening its page.
+ */
+class LabFragment : LabPageFragment(R.xml.lab_main) {
 
-/** The volume dialog: slider gradient, percentage and haptics. */
-class VolumeDialogFragment : LabPageFragment(R.xml.lab_volume_dialog) {
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        super.onCreatePreferences(savedInstanceState, rootKey)
+        val dashboard = findPreference<LayoutPreference>(KEY_DASHBOARD) ?: return
+        for (card in SMALL_CARDS) {
+            dashboard.findViewById<View>(card.id)?.let { fillSmallCard(it, card) }
+        }
+        for ((id, page) in PAGES) {
+            dashboard.findViewById<View>(id)?.setOnClickListener {
+                (activity as? LabActivity)?.openPage(page.name)
+            }
+        }
+    }
+
+    private fun fillSmallCard(view: View, card: SmallCard) {
+        view.findViewById<TextView>(R.id.lab_small_card_title).setText(card.title)
+        view.findViewById<TextView>(R.id.lab_small_card_summary).setText(card.summary)
+        view.findViewById<LottieAnimationView>(R.id.lab_small_card_animation).apply {
+            setAnimation(card.animation)
+            repeatCount = LottieDrawable.INFINITE
+            playAnimation()
+        }
+    }
+
+    /** One of the small cards, which share lab_small_card.xml. */
+    private class SmallCard(
+        @IdRes val id: Int,
+        @StringRes val title: Int,
+        @StringRes val summary: Int,
+        @RawRes val animation: Int,
+    )
+
+    private companion object {
+        const val KEY_DASHBOARD = "lab_dashboard"
+
+        val SMALL_CARDS =
+            listOf(
+                SmallCard(
+                    R.id.card_sound,
+                    R.string.sound_title,
+                    R.string.sound_summary,
+                    R.raw.lab_card_sound,
+                ),
+                SmallCard(
+                    R.id.card_notifications,
+                    R.string.notifications_title,
+                    R.string.notifications_summary,
+                    R.raw.lab_card_notifications,
+                ),
+                SmallCard(
+                    R.id.card_buttons,
+                    R.string.buttons_title,
+                    R.string.buttons_summary,
+                    R.raw.lab_card_buttons,
+                ),
+                SmallCard(
+                    R.id.card_about,
+                    R.string.about_title,
+                    R.string.about_summary,
+                    R.raw.lab_card_about,
+                ),
+            )
+
+        val PAGES: Map<Int, Class<out Fragment>> =
+            mapOf(
+                R.id.card_status_bar to StatusBarFragment::class.java,
+                R.id.card_quick_settings to QuickSettingsFragment::class.java,
+                R.id.card_user_interface to UserInterfaceFragment::class.java,
+                R.id.card_lockscreen to LockscreenFragment::class.java,
+                R.id.card_misc to MiscFragment::class.java,
+                R.id.card_sound to SoundFragment::class.java,
+                R.id.card_notifications to NotificationsFragment::class.java,
+                R.id.card_buttons to ButtonsFragment::class.java,
+                R.id.card_about to AboutFragment::class.java,
+            )
+    }
+}
+
+/** Status bar: nothing yet. */
+class StatusBarFragment : LabPageFragment(R.xml.lab_status_bar)
+
+/** Quick settings: Color pop. */
+class QuickSettingsFragment : LabPageFragment(R.xml.lab_quick_settings)
+
+/** User interface: nothing yet. */
+class UserInterfaceFragment : LabPageFragment(R.xml.lab_user_interface)
+
+/** Lock screen: nothing yet. */
+class LockscreenFragment : LabPageFragment(R.xml.lab_lockscreen)
+
+/** Misc: Spoofing, which opens in Settings. */
+class MiscFragment : LabPageFragment(R.xml.lab_misc)
+
+/** Sound: the volume dialog's slider gradient, percentage and haptics. */
+class SoundFragment : LabPageFragment(R.xml.lab_sound) {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         super.onCreatePreferences(savedInstanceState, rootKey)
@@ -58,5 +163,30 @@ class VolumeDialogFragment : LabPageFragment(R.xml.lab_volume_dialog) {
     }
 }
 
-/** Quick settings: Color pop. */
-class QuickSettingsFragment : LabPageFragment(R.xml.lab_quick_settings)
+/** Notifications: nothing yet. */
+class NotificationsFragment : LabPageFragment(R.xml.lab_notifications)
+
+/** Buttons: nothing yet. */
+class ButtonsFragment : LabPageFragment(R.xml.lab_buttons)
+
+/** About: the ro.catalyxx.* properties, whose names are the rows' keys, and the source code. */
+class AboutFragment : LabPageFragment(R.xml.lab_about) {
+
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        super.onCreatePreferences(savedInstanceState, rootKey)
+        for (property in PROPERTIES) {
+            findPreference<Preference>(property)?.summary =
+                SystemProperties.get(property).ifEmpty { getString(R.string.about_unknown) }
+        }
+    }
+
+    private companion object {
+        val PROPERTIES =
+            listOf(
+                "ro.catalyxx.display.version",
+                "ro.catalyxx.codename",
+                "ro.catalyxx.build.version",
+                "ro.catalyxx.maintainer",
+            )
+    }
+}

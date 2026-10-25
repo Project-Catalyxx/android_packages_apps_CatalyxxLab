@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Project Catalyxx
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/buttons_title">
+
+    <!-- Until this section's first feature lands -->
+    <com.android.settingslib.widget.TopIntroPreference
+        android:key="coming_soon"
+        android:title="@string/coming_soon" />
+</PreferenceScreen>

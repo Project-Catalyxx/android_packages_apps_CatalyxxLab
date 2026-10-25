@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Project Catalyxx
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/misc_title">
+
+    <!-- RisingOS's Spoofing page, built into Settings (PersonalizationsManifest.xml) -->
+    <Preference
+        android:key="spoofing"
+        android:title="@string/spoofing_title"
+        android:summary="@string/spoofing_summary"
+        android:icon="@drawable/ic_spoofing">
+        <intent
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.Settings$PersonalizationsSpoofActivity" />
+    </Preference>
+</PreferenceScreen>

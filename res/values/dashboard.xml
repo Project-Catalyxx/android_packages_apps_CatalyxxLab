@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2023-2026 Project Matrixx
+     SPDX-FileCopyrightText: 2026 Project Catalyxx
+     SPDX-License-Identifier: Apache-2.0
+
+     The front page's cards, after Matrixx Lab's dashboard.
+-->
+<resources>
+    <color name="lab_card_color">@android:color/system_neutral1_10</color>
+    <color name="lab_card_title_color">#D8000000</color>
+    <color name="lab_card_summary_color">#66000000</color>
+
+    <dimen name="lab_card_radius">28dp</dimen>
+    <dimen name="lab_card_gap">12dp</dimen>
+
+    <style name="LabCardTitle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/lab_card_title_color</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
+        <item name="android:breakStrategy">simple</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="LabCardSummary">
+        <item name="android:textSize">12.5sp</item>
+        <item name="android:textColor">@color/lab_card_summary_color</item>
+        <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
+        <item name="android:breakStrategy">simple</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="LabCardClock">
+        <item name="android:textColor">@android:color/system_accent1_100</item>
+        <item name="android:fontFamily">@*android:string/config_clockFontFamily</item>
+        <item name="android:textFontWeight">300</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:format12Hour">hh\nmm</item>
+        <item name="android:format24Hour">HH\nmm</item>
+    </style>
+</resources>

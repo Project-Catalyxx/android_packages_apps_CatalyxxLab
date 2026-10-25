@@ -8,13 +8,36 @@
     <string name="lab_title">Catalyxx Lab</string>
     <string name="lab_tagline">Mix your own formula</string>
 
-    <!-- Volume dialog page -->
-    <string name="volume_dialog_title">Volume dialog</string>
-    <string name="volume_dialog_summary">Slider gradient, percentage and haptics</string>
-
-    <!-- Quick settings page -->
+    <!-- Front page cards, each opening the page of the same name -->
+    <string name="status_bar_title">Status bar</string>
+    <string name="status_bar_summary">Status bar icons and clock</string>
     <string name="quick_settings_title">Quick settings</string>
-    <string name="quick_settings_summary">Tile colors</string>
+    <string name="quick_settings_summary">Tile colors and style</string>
+    <string name="user_interface_title">User interface</string>
+    <string name="lockscreen_title">Lock screen</string>
+    <string name="lockscreen_summary">The lock screen clock and more</string>
+    <string name="misc_title">Misc</string>
+    <string name="misc_summary">Spoofing and system tweaks</string>
+    <string name="sound_title">Sound</string>
+    <string name="sound_summary">Volume panel and haptics</string>
+    <string name="notifications_title">Notifications</string>
+    <string name="notifications_summary">Heads up and more</string>
+    <string name="buttons_title">Buttons</string>
+    <string name="buttons_summary">Power menu and keys</string>
+    <string name="about_title">About</string>
+    <string name="about_summary">About Catalyxx</string>
+    <!-- A page whose section has no features yet -->
+    <string name="coming_soon">Nothing here yet. Features for this section land here as Catalyxx adds them.</string>
+
+    <!-- About page; the rows show the ro.catalyxx.* properties -->
+    <string name="about_intro">Project Catalyxx, on LineageOS</string>
+    <string name="about_version">Version</string>
+    <string name="about_codename">Codename</string>
+    <string name="about_build">Build</string>
+    <string name="about_maintainer">Maintainer</string>
+    <string name="about_unknown">Unknown</string>
+    <string name="about_source">Source code</string>
+    <string name="about_source_summary">Project Catalyxx on GitHub</string>
 
     <!-- Spoofing page (opens in Settings) -->
     <string name="spoofing_title">Spoofing</string>

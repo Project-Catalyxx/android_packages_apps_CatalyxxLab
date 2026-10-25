@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2023-2026 Project Matrixx
+     SPDX-FileCopyrightText: 2026 Project Catalyxx
+     SPDX-License-Identifier: Apache-2.0
+
+     Catalyxx Lab's front page, after Matrixx Lab's dashboard: one card per
+     feature area, each opening its page (LabFragment). The cards' animations
+     are Matrixx Lab's, recolored to Catalyxx's purples.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingTop="8dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="16dp">
+
+    <!-- Status bar and Quick settings, beside the tall User interface card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/lab_card_gap"
+            android:layout_weight="1.5"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/card_status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/lab_card_gap"
+                android:layout_weight="1"
+                android:background="@drawable/lab_card_background"
+                android:clickable="true"
+                android:clipToOutline="true"
+                android:focusable="true">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.8"
+                    android:importantForAccessibility="no"
+                    android:scaleType="centerCrop"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/lab_card_status_bar" />
+
+                <TextView
+                    android:id="@+id/card_status_bar_title"
+                    style="@style/LabCardTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/card_status_bar_summary"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/status_bar_title" />
+
+                <TextView
+                    android:id="@+id/card_status_bar_summary"
+                    style="@style/LabCardSummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/status_bar_summary" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/card_quick_settings"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/lab_card_background"
+                android:clickable="true"
+                android:clipToOutline="true"
+                android:focusable="true">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.5"
+                    android:importantForAccessibility="no"
+                    android:scaleType="centerCrop"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/lab_card_quick_settings" />
+
+                <TextView
+                    android:id="@+id/card_quick_settings_title"
+                    style="@style/LabCardTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/card_quick_settings_summary"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/quick_settings_title" />
+
+                <TextView
+                    android:id="@+id/card_quick_settings_summary"
+                    style="@style/LabCardSummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/quick_settings_summary" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- User interface: the wallpaper drifting behind a big clock -->
+        <FrameLayout
+            android:id="@+id/card_user_interface"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:background="@drawable/lab_card_shape"
+            android:clickable="true"
+            android:clipToOutline="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <org.catalyxx.lab.widget.DriftingWallpaperView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foreground="@drawable/lab_wallpaper_scrim"
+                android:importantForAccessibility="no" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/LabCardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:fontFamily="@*android:string/config_bodyFontFamily"
+                    android:text="@string/user_interface_title"
+                    android:textColor="#FFFFFFFF"
+                    android:textFontWeight="300" />
+
+                <TextClock
+                    style="@style/LabCardClock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="60sp" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginTop="24dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_lab_lock"
+                    android:tint="#FFFFFFFF" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Lock screen: a small lock screen preview -->
+    <RelativeLayout
+        android:id="@+id/card_lockscreen"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginTop="@dimen/lab_card_gap"
+        android:background="@drawable/lab_card_background"
+        android:clickable="true"
+        android:clipToOutline="true"
+        android:focusable="true">
+
+        <FrameLayout
+            android:id="@+id/card_lockscreen_preview"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/lab_preview_shape"
+            android:clipToOutline="true">
+
+            <org.catalyxx.lab.widget.WallpaperView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foreground="@drawable/lab_wallpaper_scrim"
+                android:importantForAccessibility="no" />
+
+            <TextClock
+                style="@style/LabCardClock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="24sp" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="16dp"
+            android:layout_toStartOf="@id/card_lockscreen_preview"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/LabCardTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lockscreen_title" />
+
+            <TextView
+                style="@style/LabCardSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/lockscreen_summary" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Misc -->
+    <RelativeLayout
+        android:id="@+id/card_misc"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginTop="@dimen/lab_card_gap"
+        android:background="@drawable/lab_card_background"
+        android:clickable="true"
+        android:clipToOutline="true"
+        android:focusable="true">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/card_misc_animation"
+            android:layout_width="65dp"
+            android:layout_height="80dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:importantForAccessibility="no"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/lab_card_misc" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="16dp"
+            android:layout_toStartOf="@id/card_misc_animation"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/LabCardTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/misc_title" />
+
+            <TextView
+                style="@style/LabCardSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/misc_summary" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Sound and Notifications -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_marginTop="@dimen/lab_card_gap"
+        android:orientation="horizontal">
+
+        <include
+            android:id="@+id/card_sound"
+            layout="@layout/lab_small_card"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/lab_card_gap"
+            android:layout_weight="1" />
+
+        <include
+            android:id="@+id/card_notifications"
+            layout="@layout/lab_small_card"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <!-- Buttons and About -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_marginTop="@dimen/lab_card_gap"
+        android:orientation="horizontal">
+
+        <include
+            android:id="@+id/card_buttons"
+            layout="@layout/lab_small_card"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/lab_card_gap"
+            android:layout_weight="1" />
+
+        <include
+            android:id="@+id/card_about"
+            layout="@layout/lab_small_card"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>
