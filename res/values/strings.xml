@@ -44,6 +44,9 @@
     <string name="spoofing_summary">Play Integrity, keybox and Pixel props</string>
     <string name="power_menu_title">Power menu</string>
     <string name="power_menu_summary">Menu items and advanced restart</string>
+    <!-- Font picker (opens in Settings) -->
+    <string name="fonts_title">Fonts</string>
+    <string name="fonts_summary">The font used across the system and apps</string>
 
     <string name="gradient_category_title">Slider gradient</string>
     <string name="gradient_title">Gradient</string>

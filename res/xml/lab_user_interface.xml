@@ -6,8 +6,14 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/user_interface_title">
 
-    <!-- Until this section's first feature lands -->
-    <com.android.settingslib.widget.TopIntroPreference
-        android:key="coming_soon"
-        android:title="@string/coming_soon" />
+    <!-- RisingOS's font picker, built into Settings (PersonalizationsManifest.xml) -->
+    <Preference
+        android:key="fonts"
+        android:title="@string/fonts_title"
+        android:summary="@string/fonts_summary"
+        android:icon="@drawable/ic_fonts">
+        <intent
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.Settings$PersonalizationsFontActivity" />
+    </Preference>
 </PreferenceScreen>
