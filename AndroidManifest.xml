@@ -37,6 +37,11 @@
             <meta-data
                 android:name="com.android.settings.order"
                 android:value="-125" />
+            <!-- The card it shares with the device's own settings, which Catalyxx's
+                 Settings puts between connectivity and personalize -->
+            <meta-data
+                android:name="com.android.settings.group_key"
+                android:value="top_level_extras_category" />
             <meta-data
                 android:name="com.android.settings.title"
                 android:resource="@string/lab_title" />
