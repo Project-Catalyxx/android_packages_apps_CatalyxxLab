@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Project Catalyxx
+     SPDX-License-Identifier: Apache-2.0
+
+     Each key is the Settings key SystemUI reads, so a change shows on the
+     tiles straight away.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/quick_settings_title">
+
+    <PreferenceCategory
+        android:key="tiles_category"
+        android:title="@string/tiles_category_title">
+
+        <!-- Settings.System.QS_COLOR_POP -->
+        <lineageos.preference.SystemSettingSwitchPreference
+            android:key="qs_color_pop"
+            android:title="@string/color_pop_title"
+            android:summary="@string/color_pop_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+</PreferenceScreen>

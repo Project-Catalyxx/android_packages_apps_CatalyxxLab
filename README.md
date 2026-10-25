@@ -12,10 +12,11 @@ way it hosts LineageOS's LineageParts.
 | Page | Settings it controls |
 |---|---|
 | Volume dialog | `Settings.System.VOLUME_SLIDER_GRADIENT`, `CUSTOM_GRADIENT_COLOR_MODE`, `CUSTOM_GRADIENT_START_COLOR`, `CUSTOM_GRADIENT_END_COLOR`, `SHOW_VOLUME_PERCENTAGE`; `Settings.Secure.VOLUME_DIALOG_HAPTIC_FEEDBACK` |
+| Quick settings | `Settings.System.QS_COLOR_POP` |
 
 The features themselves live in Project Catalyxx's `frameworks/base`; the Lab only
-reads and writes their settings, and SystemUI picks a change up the next time the
-volume dialog opens.
+reads and writes their settings. SystemUI picks a volume change up the next time
+the volume dialog opens, and a Color pop change straight away.
 
 ## Adding a page
 

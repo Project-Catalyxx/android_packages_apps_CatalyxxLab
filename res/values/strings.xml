@@ -12,6 +12,10 @@
     <string name="volume_dialog_title">Volume dialog</string>
     <string name="volume_dialog_summary">Slider gradient, percentage and haptics</string>
 
+    <!-- Quick settings page -->
+    <string name="quick_settings_title">Quick settings</string>
+    <string name="quick_settings_summary">Tile colors</string>
+
     <!-- Spoofing page (opens in Settings) -->
     <string name="spoofing_title">Spoofing</string>
     <string name="spoofing_summary">Play Integrity, keybox and Pixel props</string>
@@ -33,6 +37,10 @@
     <string name="percentage_summary">Show the media volume in percent under the slider</string>
     <string name="haptics_title">Haptic feedback</string>
     <string name="haptics_summary">Vibrate while you drag the volume slider</string>
+
+    <string name="tiles_category_title">Tiles</string>
+    <string name="color_pop_title">Color pop</string>
+    <string name="color_pop_summary">Give each tile that\'s on a color of its own</string>
 
     <!-- Color presets -->
     <string name="color_catalyxx_lavender">Catalyxx lavender</string>

@@ -57,3 +57,6 @@ class VolumeDialogFragment : LabPageFragment(R.xml.lab_volume_dialog) {
         const val MODE_CUSTOM = "1"
     }
 }
+
+/** Quick settings: Color pop. */
+class QuickSettingsFragment : LabPageFragment(R.xml.lab_quick_settings)
