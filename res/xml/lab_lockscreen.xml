@@ -6,8 +6,14 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/lockscreen_title">
 
-    <!-- Until this section's first feature lands -->
-    <com.android.settingslib.widget.TopIntroPreference
-        android:key="coming_soon"
-        android:title="@string/coming_soon" />
+    <!-- RisingOS's lock screen customizer, built into Settings (PersonalizationsManifest.xml) -->
+    <Preference
+        android:key="lockscreen_customizer"
+        android:title="@string/lockscreen_customizer_title"
+        android:summary="@string/lockscreen_customizer_summary"
+        android:icon="@drawable/ic_lockscreen_customizer">
+        <intent
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.rising.settings.fragments.lockscreen.LockscreenCustomizerActivity" />
+    </Preference>
 </PreferenceScreen>

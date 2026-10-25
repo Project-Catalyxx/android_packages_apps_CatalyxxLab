@@ -47,6 +47,9 @@
     <!-- Font picker (opens in Settings) -->
     <string name="fonts_title">Fonts</string>
     <string name="fonts_summary">The font used across the system and apps</string>
+    <!-- Lock screen customizer (opens in Settings) -->
+    <string name="lockscreen_customizer_title">Customize lock screen</string>
+    <string name="lockscreen_customizer_summary">Clock style, widgets, Now Playing and weather</string>
 
     <string name="gradient_category_title">Slider gradient</string>
     <string name="gradient_title">Gradient</string>
