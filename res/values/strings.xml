@@ -51,8 +51,8 @@
     <string name="lockscreen_customizer_title">Customize lock screen</string>
     <string name="lockscreen_customizer_summary">Clock style, widgets, Now Playing and weather</string>
     <!-- OmniJaws' settings: the weather source for the lock screen -->
-    <string name="weather_title">Weather</string>
-    <string name="weather_summary">Turn on weather and pick a provider for the lock screen clocks and widgets</string>
+    <string name="weather_title">Weather provider</string>
+    <string name="weather_summary">Location, units and weather service for the lock screen</string>
 
     <string name="gradient_category_title">Slider gradient</string>
     <string name="gradient_title">Gradient</string>
