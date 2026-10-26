@@ -47,6 +47,9 @@
     <!-- Font picker (opens in Settings) -->
     <string name="fonts_title">Fonts</string>
     <string name="fonts_summary">The font used across the system and apps</string>
+    <!-- QuickSwitch launcher picker (opens in Settings) -->
+    <string name="home_app_title">Home app</string>
+    <string name="home_app_summary">Switch between Launcher3, Pixel Launcher and Lawnchair, recents and gestures included</string>
     <!-- Lock screen customizer (opens in Settings) -->
     <string name="lockscreen_customizer_title">Customize lock screen</string>
     <string name="lockscreen_customizer_summary">Clock style, widgets, Now Playing and weather</string>

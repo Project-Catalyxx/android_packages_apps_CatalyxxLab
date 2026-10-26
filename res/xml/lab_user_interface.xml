@@ -16,4 +16,14 @@
             android:targetPackage="com.android.settings"
             android:targetClass="com.android.settings.Settings$PersonalizationsFontActivity" />
     </Preference>
+    <!-- RisingOS's QuickSwitch, built into Settings (PersonalizationsManifest.xml) -->
+    <Preference
+        android:key="home_app"
+        android:title="@string/home_app_title"
+        android:summary="@string/home_app_summary"
+        android:icon="@drawable/ic_home_app">
+        <intent
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.Settings$PersonalizationsQuickSwitchActivity" />
+    </Preference>
 </PreferenceScreen>
