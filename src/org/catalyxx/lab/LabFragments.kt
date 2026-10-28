@@ -28,6 +28,14 @@ abstract class LabPageFragment(@XmlRes private val xml: Int) : PreferenceFragmen
         setPreferencesFromResource(xml, rootKey)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // A Settings search result opens the page at the row it found
+        if (savedInstanceState == null) {
+            arguments?.getString(EXTRA_FRAGMENT_ARG_KEY)?.let { scrollToPreference(it) }
+        }
+    }
+
     override fun onResume() {
         super.onResume()
         // Coming back from a page restores this page's title too.
@@ -155,7 +163,8 @@ class SoundFragment : LabPageFragment(R.xml.lab_sound) {
         }
     }
 
-    private companion object {
+    // The colors' keys are also in LabSearchIndexablesProvider's hidden rows
+    internal companion object {
         const val KEY_COLOR_MODE = "custom_gradient_color_mode"
         const val KEY_START_COLOR = "custom_gradient_start_color"
         const val KEY_END_COLOR = "custom_gradient_end_color"

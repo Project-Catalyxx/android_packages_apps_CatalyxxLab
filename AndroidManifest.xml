@@ -58,5 +58,19 @@
                 android:name="com.android.settings.profile"
                 android:value="primary_profile_only" />
         </activity>
+
+        <!-- The Lab's settings in Settings' search. Settings Intelligence only reads
+             providers whose read and write permission are both this one. -->
+        <provider
+            android:name=".LabSearchIndexablesProvider"
+            android:authorities="org.catalyxx.lab.search"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:multiprocess="false"
+            android:permission="android.permission.READ_SEARCH_INDEXABLES">
+            <intent-filter>
+                <action android:name="android.content.action.SEARCH_INDEXABLES_PROVIDER" />
+            </intent-filter>
+        </provider>
     </application>
 </manifest>

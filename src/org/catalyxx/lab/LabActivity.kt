@@ -13,7 +13,7 @@ import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity
 /**
  * Catalyxx Lab, opened from its card on Settings' home screen. Shows [LabFragment]
  * and opens each feature's page in its place, with the collapsing toolbar that
- * Settings' own pages use.
+ * Settings' own pages use. A Settings search result opens its page directly.
  */
 class LabActivity :
     CollapsingToolbarBaseActivity(), PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
@@ -21,9 +21,15 @@ class LabActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
+            val page = LabPage.forAction(intent?.action) ?: LabPage.MAIN
+            val fragment =
+                supportFragmentManager.fragmentFactory.instantiate(classLoader, page.fragment.name)
+            fragment.arguments = Bundle().apply {
+                putString(EXTRA_FRAGMENT_ARG_KEY, intent?.getStringExtra(EXTRA_FRAGMENT_ARG_KEY))
+            }
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.content_frame, LabFragment())
+                .replace(R.id.content_frame, fragment)
                 .commit()
         }
     }
