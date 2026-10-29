@@ -19,6 +19,7 @@
         <lineageos.preference.SystemSettingSwitchPreference
             android:key="volume_slider_gradient"
             android:title="@string/gradient_title"
+            app:keywords="@string/gradient_keywords"
             android:summary="@string/gradient_summary"
             android:defaultValue="false" />
 
@@ -26,6 +27,7 @@
         <org.catalyxx.lab.SystemSettingIntListPreference
             android:key="custom_gradient_color_mode"
             android:title="@string/gradient_colors_title"
+            app:keywords="@string/gradient_colors_keywords"
             android:entries="@array/gradient_mode_entries"
             android:entryValues="@array/gradient_mode_values"
             android:defaultValue="0"
@@ -59,6 +61,7 @@
         <lineageos.preference.SystemSettingSwitchPreference
             android:key="show_volume_percentage"
             android:title="@string/percentage_title"
+            app:keywords="@string/percentage_keywords"
             android:summary="@string/percentage_summary"
             android:defaultValue="false" />
 
@@ -66,6 +69,7 @@
         <lineageos.preference.SecureSettingSwitchPreference
             android:key="volume_dialog_haptic_feedback"
             android:title="@string/haptics_title"
+            app:keywords="@string/haptics_keywords"
             android:summary="@string/haptics_summary"
             android:defaultValue="true" />
     </PreferenceCategory>
@@ -80,28 +84,34 @@
         <lineageos.preference.SystemSettingSwitchPreference
             android:key="vibrate_on"
             android:title="@string/vibrate_on_title"
+            app:keywords="@string/vibrate_on_keywords"
             android:defaultValue="true" />
 
         <org.catalyxx.lab.VibrationIntensityPreference
             android:key="ring_vibration_intensity"
-            android:title="@string/ring_vibration_title" />
+            android:title="@string/ring_vibration_title"
+            app:keywords="@string/ring_vibration_keywords" />
 
         <org.catalyxx.lab.VibrationIntensityPreference
             android:key="notification_vibration_intensity"
-            android:title="@string/notification_vibration_title" />
+            android:title="@string/notification_vibration_title"
+            app:keywords="@string/notification_vibration_keywords" />
 
         <org.catalyxx.lab.VibrationIntensityPreference
             android:key="alarm_vibration_intensity"
-            android:title="@string/alarm_vibration_title" />
+            android:title="@string/alarm_vibration_title"
+            app:keywords="@string/alarm_vibration_keywords" />
 
         <!-- Typing follows it: vendor/catalyxx turns separate keyboard settings off -->
         <org.catalyxx.lab.VibrationIntensityPreference
             android:key="haptic_feedback_intensity"
-            android:title="@string/touch_vibration_title" />
+            android:title="@string/touch_vibration_title"
+            app:keywords="@string/touch_vibration_keywords" />
 
         <org.catalyxx.lab.VibrationIntensityPreference
             android:key="media_vibration_intensity"
-            android:title="@string/media_vibration_title" />
+            android:title="@string/media_vibration_title"
+            app:keywords="@string/media_vibration_keywords" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -113,6 +123,7 @@
         <org.catalyxx.lab.SystemSettingIntListPreference
             android:key="edge_scrolling_haptics_intensity"
             android:title="@string/edge_haptics_title"
+            app:keywords="@string/edge_haptics_keywords"
             android:entries="@array/edge_haptics_entries"
             android:entryValues="@array/edge_haptics_values"
             android:defaultValue="1"

@@ -4,6 +4,7 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/buttons_title">
 
     <!-- LineageOS's Power menu page (LineageParts' power_menu part): the menu's
@@ -12,6 +13,7 @@
     <Preference
         android:key="power_menu"
         android:title="@string/power_menu_title"
+        app:keywords="@string/power_menu_keywords"
         android:summary="@string/power_menu_summary"
         android:icon="@drawable/ic_power_menu">
         <intent

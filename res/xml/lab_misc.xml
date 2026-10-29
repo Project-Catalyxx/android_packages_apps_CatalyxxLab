@@ -4,12 +4,14 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/misc_title">
 
     <!-- RisingOS's Spoofing page, built into Settings (PersonalizationsManifest.xml) -->
     <Preference
         android:key="spoofing"
         android:title="@string/spoofing_title"
+        app:keywords="@string/spoofing_keywords"
         android:summary="@string/spoofing_summary"
         android:icon="@drawable/ic_spoofing">
         <intent

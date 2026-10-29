@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Project Catalyxx
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Extra words a row is found by in Settings' search, as Settings' own
+         settings:keywords: Settings Intelligence reads app:keywords from the
+         Lab's XML (LabSearch.kt) -->
+    <attr name="keywords" format="string" />
+</resources>

@@ -7,6 +7,7 @@
      vendor/catalyxx sets.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/about_title">
 
     <com.android.settingslib.widget.TopIntroPreference
@@ -16,26 +17,31 @@
     <Preference
         android:key="ro.catalyxx.display.version"
         android:title="@string/about_version"
+        app:keywords="@string/about_version_keywords"
         android:selectable="false" />
 
     <Preference
         android:key="ro.catalyxx.codename"
         android:title="@string/about_codename"
+        app:keywords="@string/about_codename_keywords"
         android:selectable="false" />
 
     <Preference
         android:key="ro.catalyxx.build.version"
         android:title="@string/about_build"
+        app:keywords="@string/about_build_keywords"
         android:selectable="false" />
 
     <Preference
         android:key="ro.catalyxx.maintainer"
         android:title="@string/about_maintainer"
+        app:keywords="@string/about_maintainer_keywords"
         android:selectable="false" />
 
     <Preference
         android:key="source"
         android:title="@string/about_source"
+        app:keywords="@string/about_source_keywords"
         android:summary="@string/about_source_summary">
         <intent
             android:action="android.intent.action.VIEW"

@@ -4,7 +4,10 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/lab_title">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:key="lab_main"
+    android:title="@string/lab_title"
+    app:keywords="@string/lab_keywords">
 
     <com.android.settingslib.widget.TopIntroPreference
         android:key="lab_intro"

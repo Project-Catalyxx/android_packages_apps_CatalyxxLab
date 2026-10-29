@@ -4,12 +4,14 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/user_interface_title">
 
     <!-- RisingOS's font picker, built into Settings (PersonalizationsManifest.xml) -->
     <Preference
         android:key="fonts"
         android:title="@string/fonts_title"
+        app:keywords="@string/fonts_keywords"
         android:summary="@string/fonts_summary"
         android:icon="@drawable/ic_fonts">
         <intent
@@ -20,6 +22,7 @@
     <Preference
         android:key="home_app"
         android:title="@string/home_app_title"
+        app:keywords="@string/home_app_keywords"
         android:summary="@string/home_app_summary"
         android:icon="@drawable/ic_home_app">
         <intent
@@ -30,6 +33,7 @@
     <org.catalyxx.lab.BlurEffectsPreference
         android:key="blur_effects"
         android:title="@string/blur_effects_title"
+        app:keywords="@string/blur_effects_keywords"
         android:summary="@string/blur_effects_summary"
         android:icon="@drawable/ic_blur" />
 </PreferenceScreen>

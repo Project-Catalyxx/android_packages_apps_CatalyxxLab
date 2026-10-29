@@ -4,6 +4,7 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/lockscreen_title">
 
     <!-- RisingOS's lock screen customizer, built into Settings (PersonalizationsManifest.xml) -->
@@ -11,7 +12,8 @@
         android:key="lockscreen_customizer"
         android:title="@string/lockscreen_customizer_title"
         android:summary="@string/lockscreen_customizer_summary"
-        android:icon="@drawable/ic_lockscreen_customizer">
+        android:icon="@drawable/ic_lockscreen_customizer"
+        app:keywords="@string/lockscreen_customizer_keywords">
         <intent
             android:targetPackage="com.android.settings"
             android:targetClass="com.rising.settings.fragments.lockscreen.LockscreenCustomizerActivity" />
@@ -21,6 +23,7 @@
     <Preference
         android:key="weather"
         android:title="@string/weather_title"
+        app:keywords="@string/weather_keywords"
         android:summary="@string/weather_summary"
         android:icon="@drawable/ic_weather">
         <intent

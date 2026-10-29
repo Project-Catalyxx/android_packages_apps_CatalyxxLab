@@ -7,6 +7,9 @@
     <!-- The Settings home screen card and the Lab's own title -->
     <string name="lab_title">Catalyxx Lab</string>
     <string name="lab_tagline">Mix your own formula</string>
+    <!-- Keywords: more words Settings' search finds a row by (its app:keywords), comma
+         separated; a search matches the start of any word, or a phrase written out whole -->
+    <string name="lab_keywords">catalyxx, catalyxx settings, rom settings, tweaks, customization, customisation, mods, extras</string>
 
     <!-- Front page cards, each opening the page of the same name -->
     <string name="status_bar_title">Status bar</string>
@@ -38,35 +41,49 @@
     <string name="about_unknown">Unknown</string>
     <string name="about_source">Source code</string>
     <string name="about_source_summary">Project Catalyxx on GitHub</string>
+    <string name="about_version_keywords">catalyxx version, rom version</string>
+    <string name="about_codename_keywords">release name, version name</string>
+    <string name="about_build_keywords">build date, rom build, catalyxx build</string>
+    <string name="about_maintainer_keywords">developer, device maintainer, maintained by</string>
+    <string name="about_source_keywords">source, source code, github, open source, git, project catalyxx</string>
 
     <!-- Spoofing page (opens in Settings) -->
     <string name="spoofing_title">Spoofing</string>
     <string name="spoofing_summary">Play Integrity, keybox and Pixel props</string>
+    <string name="spoofing_keywords">spoof, spoofing, play integrity, play integrity fix, pif, integrity, strong integrity, device integrity, safetynet, tricky store, trickystore, keybox, attestation, app spoofing, device identity, pixel props, pixel spoof, tensor, tensor features, google photos, unlimited photos, snapchat, banking apps, google wallet</string>
     <string name="power_menu_title">Power menu</string>
     <string name="power_menu_summary">Menu items and advanced restart</string>
+    <string name="power_menu_keywords">power button, power off, shut down, shutdown, restart, reboot, advanced restart, advanced reboot, reboot to recovery, recovery, bootloader, screenshot, airplane mode, user switcher, bug report, emergency, device controls, global actions</string>
     <!-- Font picker (opens in Settings) -->
     <string name="fonts_title">Fonts</string>
     <string name="fonts_summary">The font used across the system and apps</string>
+    <string name="fonts_keywords">font, font style, typeface, text style, system font, custom font, change font</string>
     <!-- QuickSwitch launcher picker (opens in Settings) -->
     <string name="home_app_title">Home app</string>
     <string name="home_app_summary">Switch between Launcher3, Pixel Launcher and Lawnchair, recents and gestures included</string>
+    <string name="home_app_keywords">launcher, home screen, default launcher, change launcher, launcher3, pixel launcher, lawnchair, quickswitch, quick switch, recents, recents provider, gestures</string>
     <!-- Blur effects: Android's disable_window_blurs, switched the other way round -->
     <string name="blur_effects_title">Blur effects</string>
     <string name="blur_effects_summary">Blur behind the shade, quick settings, dialogs and the launcher</string>
     <string name="blur_effects_battery_saver_summary">Off while Battery Saver is on</string>
+    <string name="blur_effects_keywords">blur, window blur, background blur, blurry, transparency, translucent, frosted glass, reduce blur, disable blur</string>
     <!-- Lock screen customizer (opens in Settings) -->
     <string name="lockscreen_customizer_title">Customize lock screen</string>
     <string name="lockscreen_customizer_summary">Clock style, widgets, Now Playing and weather</string>
+    <string name="lockscreen_customizer_keywords">clock, clock style, clock face, clock font, clock color, clock size, lock screen clock, lockscreen clock, lockscreen, lock screen widgets, lockscreen widgets, widgets, now playing, music recognition, song recognition, lyrics, album art, lock screen weather, aod, always on display</string>
     <!-- OmniJaws' settings: the weather source for the lock screen -->
     <string name="weather_title">Weather provider</string>
     <string name="weather_summary">Location, units and weather service for the lock screen</string>
+    <string name="weather_keywords">weather, omnijaws, temperature, forecast, weather location, weather units, celsius, fahrenheit, openweathermap, open meteo, met norway, pirate weather, visual crossing, lock screen weather</string>
 
     <string name="gradient_category_title">Slider gradient</string>
     <string name="gradient_title">Gradient</string>
     <string name="gradient_summary">Color the volume slider with a gradient</string>
+    <string name="gradient_keywords">volume slider, volume slider color, volume gradient, gradient slider, volume bar, volume panel, volume dialog, slider color</string>
     <string name="gradient_colors_title">Gradient colors</string>
     <string name="gradient_colors_theme">Theme colors</string>
     <string name="gradient_colors_custom">Custom colors</string>
+    <string name="gradient_colors_keywords">volume slider colors, volume colors, slider colors</string>
     <!-- The gradient runs from the quiet end of the slider to the loud end -->
     <string name="gradient_start_title">Quiet end</string>
     <string name="gradient_end_title">Loud end</string>
@@ -76,16 +93,24 @@
     <string name="dialog_category_title">Dialog</string>
     <string name="percentage_title">Volume percentage</string>
     <string name="percentage_summary">Show the media volume in percent under the slider</string>
+    <string name="percentage_keywords">volume percent, volume percentage, volume level, volume number, percent, volume panel, volume dialog</string>
     <string name="haptics_title">Haptic feedback</string>
     <string name="haptics_summary">Vibrate while you drag the volume slider</string>
+    <string name="haptics_keywords">volume haptics, volume vibration, volume slider vibration, slider haptics, volume panel, volume dialog</string>
 
     <string name="vibration_category_title">Vibration</string>
     <string name="vibrate_on_title">Use vibration &amp; haptics</string>
+    <string name="vibrate_on_keywords">vibration, vibrate, haptics, haptic feedback, turn off vibration, disable vibration, no vibration</string>
     <string name="ring_vibration_title">Ring vibration</string>
     <string name="notification_vibration_title">Notification vibration</string>
     <string name="alarm_vibration_title">Alarm vibration</string>
     <string name="touch_vibration_title">Touch &amp; typing feedback</string>
     <string name="media_vibration_title">Media vibration</string>
+    <string name="ring_vibration_keywords">ringtone vibration, call vibration, incoming call vibration, vibration strength, vibration intensity</string>
+    <string name="notification_vibration_keywords">message vibration, vibration strength, vibration intensity</string>
+    <string name="alarm_vibration_keywords">alarm clock vibration, vibration strength, vibration intensity</string>
+    <string name="touch_vibration_keywords">haptic feedback, haptics, haptic strength, touch vibration, keyboard vibration, typing vibration, keypress vibration, vibration strength, vibration intensity</string>
+    <string name="media_vibration_keywords">haptic playback, media haptics, music vibration, vibration strength, vibration intensity</string>
     <!-- Vibration intensities, from Vibrator.VIBRATION_INTENSITY_OFF to _HIGH -->
     <string name="vibration_intensity_off">Off</string>
     <string name="vibration_intensity_low">Low</string>
@@ -95,6 +120,7 @@
 
     <string name="scrolling_category_title">Scrolling</string>
     <string name="edge_haptics_title">Edge haptics</string>
+    <string name="edge_haptics_keywords">scroll haptics, scrolling haptics, scroll vibration, overscroll, overscroll vibration, edge vibration, list end, edge effect</string>
     <!-- Strengths of the bump felt when a flung list hits its end -->
     <string name="edge_haptics_off">Off</string>
     <string name="edge_haptics_texture_tick">Light tick</string>
@@ -106,6 +132,7 @@
     <string name="tiles_category_title">Tiles</string>
     <string name="color_pop_title">Color pop</string>
     <string name="color_pop_summary">Give each tile that\'s on a color of its own</string>
+    <string name="color_pop_keywords">tile colors, tile color, colorful tiles, colored tiles, coloured tiles, rainbow tiles, qs tiles, quick settings tiles, quick tiles, qs colors</string>
 
     <!-- Color presets -->
     <string name="color_catalyxx_lavender">Catalyxx lavender</string>
