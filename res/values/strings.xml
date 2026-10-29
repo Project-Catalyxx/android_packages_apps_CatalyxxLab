@@ -50,6 +50,10 @@
     <!-- QuickSwitch launcher picker (opens in Settings) -->
     <string name="home_app_title">Home app</string>
     <string name="home_app_summary">Switch between Launcher3, Pixel Launcher and Lawnchair, recents and gestures included</string>
+    <!-- Blur effects: Android's disable_window_blurs, switched the other way round -->
+    <string name="blur_effects_title">Blur effects</string>
+    <string name="blur_effects_summary">Blur behind the shade, quick settings, dialogs and the launcher</string>
+    <string name="blur_effects_battery_saver_summary">Off while Battery Saver is on</string>
     <!-- Lock screen customizer (opens in Settings) -->
     <string name="lockscreen_customizer_title">Customize lock screen</string>
     <string name="lockscreen_customizer_summary">Clock style, widgets, Now Playing and weather</string>

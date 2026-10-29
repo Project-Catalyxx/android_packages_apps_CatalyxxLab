@@ -26,4 +26,10 @@
             android:targetPackage="com.android.settings"
             android:targetClass="com.android.settings.Settings$PersonalizationsQuickSwitchActivity" />
     </Preference>
+    <!-- Android's own blur setting, which Accessibility shows the other way round -->
+    <org.catalyxx.lab.BlurEffectsPreference
+        android:key="blur_effects"
+        android:title="@string/blur_effects_title"
+        android:summary="@string/blur_effects_summary"
+        android:icon="@drawable/ic_blur" />
 </PreferenceScreen>

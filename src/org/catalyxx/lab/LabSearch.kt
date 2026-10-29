@@ -11,6 +11,7 @@ import android.provider.SearchIndexablesContract.INDEXABLES_RAW_COLUMNS
 import android.provider.SearchIndexablesContract.INDEXABLES_XML_RES_COLUMNS
 import android.provider.SearchIndexablesContract.NON_INDEXABLES_KEYS_COLUMNS
 import android.provider.SearchIndexablesProvider
+import android.view.CrossWindowBlurListeners.CROSS_WINDOW_BLUR_SUPPORTED
 import androidx.annotation.XmlRes
 
 /** Names the row a Settings search result was found in (Settings' own extra). */
@@ -73,6 +74,10 @@ class LabSearchIndexablesProvider : SearchIndexablesProvider() {
         MatrixCursor(NON_INDEXABLES_KEYS_COLUMNS).apply {
             for (key in NON_INDEXABLE_KEYS) {
                 addRow(arrayOf<Any?>(key))
+            }
+            // Blur effects only shows on a device with system blur
+            if (!CROSS_WINDOW_BLUR_SUPPORTED) {
+                addRow(arrayOf<Any?>(UserInterfaceFragment.KEY_BLUR_EFFECTS))
             }
         }
 
