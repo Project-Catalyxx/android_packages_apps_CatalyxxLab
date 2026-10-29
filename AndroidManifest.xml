@@ -10,6 +10,8 @@
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
     <!-- The front page shows the wallpaper behind its clocks -->
     <uses-permission android:name="android.permission.READ_WALLPAPER_INTERNAL" />
+    <!-- Sound's vibration sliders play a preview of each step -->
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:icon="@drawable/ic_lab"

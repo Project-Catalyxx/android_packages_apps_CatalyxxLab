@@ -7,6 +7,7 @@ package org.catalyxx.lab
 
 import android.os.Bundle
 import android.os.SystemProperties
+import android.provider.Settings
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.IdRes
@@ -16,7 +17,9 @@ import androidx.annotation.XmlRes
 import androidx.fragment.app.Fragment
 import androidx.preference.ListPreference
 import androidx.preference.Preference
+import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.TwoStatePreference
 import com.airbnb.lottie.LottieAnimationView
 import com.airbnb.lottie.LottieDrawable
 import com.android.settingslib.widget.LayoutPreference
@@ -141,11 +144,16 @@ class LockscreenFragment : LabPageFragment(R.xml.lab_lockscreen)
 /** Misc: Spoofing, which opens in Settings. */
 class MiscFragment : LabPageFragment(R.xml.lab_misc)
 
-/** Sound: the volume dialog's slider gradient, percentage and haptics. */
+/** Sound: the volume dialog's slider gradient, percentage and haptics, and vibration. */
 class SoundFragment : LabPageFragment(R.xml.lab_sound) {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         super.onCreatePreferences(savedInstanceState, rootKey)
+        findPreference<Preference>(KEY_VIBRATE_ON)?.setOnPreferenceChangeListener { _, _ ->
+            // The switch writes Settings.System after this returns; read it once it has.
+            listView.post { refreshVibration() }
+            true
+        }
         val mode = findPreference<ListPreference>(KEY_COLOR_MODE) ?: return
         showCustomColors(mode.value)
         mode.setOnPreferenceChangeListener { _, newValue ->
@@ -163,12 +171,30 @@ class SoundFragment : LabPageFragment(R.xml.lab_sound) {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        // Settings' Vibration & haptics page may have changed them meanwhile.
+        refreshVibration()
+    }
+
+    private fun refreshVibration() {
+        val resolver = requireContext().contentResolver
+        findPreference<TwoStatePreference>(KEY_VIBRATE_ON)?.isChecked =
+            Settings.System.getInt(resolver, Settings.System.VIBRATE_ON, 1) == 1
+        val category = findPreference<PreferenceCategory>(KEY_VIBRATION_CATEGORY) ?: return
+        for (i in 0 until category.preferenceCount) {
+            (category.getPreference(i) as? VibrationIntensityPreference)?.refresh()
+        }
+    }
+
     // The colors' keys are also in LabSearchIndexablesProvider's hidden rows
     internal companion object {
         const val KEY_COLOR_MODE = "custom_gradient_color_mode"
         const val KEY_START_COLOR = "custom_gradient_start_color"
         const val KEY_END_COLOR = "custom_gradient_end_color"
         const val MODE_CUSTOM = "1"
+        const val KEY_VIBRATION_CATEGORY = "vibration_category"
+        const val KEY_VIBRATE_ON = "vibrate_on"
     }
 }
 

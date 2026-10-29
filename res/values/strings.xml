@@ -19,7 +19,7 @@
     <string name="misc_title">Misc</string>
     <string name="misc_summary">Spoofing and system tweaks</string>
     <string name="sound_title">Sound</string>
-    <string name="sound_summary">Volume panel and haptics</string>
+    <string name="sound_summary">Volume panel, vibration and haptics</string>
     <string name="notifications_title">Notifications</string>
     <string name="notifications_summary">Heads up and more</string>
     <string name="buttons_title">Buttons</string>
@@ -74,6 +74,20 @@
     <string name="percentage_summary">Show the media volume in percent under the slider</string>
     <string name="haptics_title">Haptic feedback</string>
     <string name="haptics_summary">Vibrate while you drag the volume slider</string>
+
+    <string name="vibration_category_title">Vibration</string>
+    <string name="vibrate_on_title">Use vibration &amp; haptics</string>
+    <string name="ring_vibration_title">Ring vibration</string>
+    <string name="notification_vibration_title">Notification vibration</string>
+    <string name="alarm_vibration_title">Alarm vibration</string>
+    <string name="touch_vibration_title">Touch &amp; typing feedback</string>
+    <string name="media_vibration_title">Media vibration</string>
+    <!-- Vibration intensities, from Vibrator.VIBRATION_INTENSITY_OFF to _HIGH -->
+    <string name="vibration_intensity_off">Off</string>
+    <string name="vibration_intensity_low">Low</string>
+    <string name="vibration_intensity_medium">Medium</string>
+    <string name="vibration_intensity_high">High</string>
+    <string name="vibration_silent_summary">Unavailable while the phone is on silent</string>
 
     <string name="scrolling_category_title">Scrolling</string>
     <string name="edge_haptics_title">Edge haptics</string>

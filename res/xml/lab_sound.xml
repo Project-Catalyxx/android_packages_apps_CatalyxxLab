@@ -70,6 +70,40 @@
             android:defaultValue="true" />
     </PreferenceCategory>
 
+    <!-- Settings > Sound & vibration > Vibration & haptics, on the same Settings.System
+         keys, so a change on either page shows on the other -->
+    <PreferenceCategory
+        android:key="vibration_category"
+        android:title="@string/vibration_category_title">
+
+        <!-- Settings.System.VIBRATE_ON: every vibration, and the sliders below -->
+        <lineageos.preference.SystemSettingSwitchPreference
+            android:key="vibrate_on"
+            android:title="@string/vibrate_on_title"
+            android:defaultValue="true" />
+
+        <org.catalyxx.lab.VibrationIntensityPreference
+            android:key="ring_vibration_intensity"
+            android:title="@string/ring_vibration_title" />
+
+        <org.catalyxx.lab.VibrationIntensityPreference
+            android:key="notification_vibration_intensity"
+            android:title="@string/notification_vibration_title" />
+
+        <org.catalyxx.lab.VibrationIntensityPreference
+            android:key="alarm_vibration_intensity"
+            android:title="@string/alarm_vibration_title" />
+
+        <!-- Typing follows it: vendor/catalyxx turns separate keyboard settings off -->
+        <org.catalyxx.lab.VibrationIntensityPreference
+            android:key="haptic_feedback_intensity"
+            android:title="@string/touch_vibration_title" />
+
+        <org.catalyxx.lab.VibrationIntensityPreference
+            android:key="media_vibration_intensity"
+            android:title="@string/media_vibration_title" />
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:key="scrolling_category"
         android:title="@string/scrolling_category_title">
