@@ -5,6 +5,8 @@
 
 package org.catalyxx.lab
 
+import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.SystemProperties
 import android.provider.Settings
@@ -23,6 +25,7 @@ import androidx.preference.TwoStatePreference
 import com.airbnb.lottie.LottieAnimationView
 import com.airbnb.lottie.LottieDrawable
 import com.android.settingslib.widget.LayoutPreference
+import lineageos.providers.LineageSettings
 
 /** A Lab page: one preference XML, whose title becomes the toolbar's. */
 abstract class LabPageFragment(@XmlRes private val xml: Int) : PreferenceFragmentCompat() {
@@ -213,8 +216,49 @@ class SoundFragment : LabPageFragment(R.xml.lab_sound) {
 /** Notifications: nothing yet. */
 class NotificationsFragment : LabPageFragment(R.xml.lab_notifications)
 
-/** Buttons: nothing yet. */
-class ButtonsFragment : LabPageFragment(R.xml.lab_buttons)
+/** Buttons: the power menu, which opens in LineageParts, and long press power for torch. */
+class ButtonsFragment : LabPageFragment(R.xml.lab_buttons) {
+
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        super.onCreatePreferences(savedInstanceState, rootKey)
+        val torch = isTorchGestureSupported(requireContext())
+        for (key in arrayOf(KEY_TORCH_GESTURE, KEY_TORCH_TIMEOUT)) {
+            findPreference<Preference>(key)?.isVisible = torch
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // LineageParts' Buttons page may have changed them meanwhile.
+        val resolver = requireContext().contentResolver
+        findPreference<TwoStatePreference>(KEY_TORCH_GESTURE)?.isChecked =
+            LineageSettings.System.getInt(
+                resolver,
+                LineageSettings.System.TORCH_LONG_PRESS_POWER_GESTURE,
+                0,
+            ) == 1
+        findPreference<ListPreference>(KEY_TORCH_TIMEOUT)?.value =
+            LineageSettings.System.getInt(
+                    resolver,
+                    LineageSettings.System.TORCH_LONG_PRESS_POWER_TIMEOUT,
+                    0,
+                )
+                .toString()
+    }
+
+    // The torch keys are also in LabSearchIndexablesProvider's hidden rows
+    internal companion object {
+        const val KEY_TORCH_GESTURE = "torch_long_press_power_gesture"
+        const val KEY_TORCH_TIMEOUT = "torch_long_press_power_timeout"
+
+        /** The torch needs a flash, and a power button that works with the screen off. */
+        fun isTorchGestureSupported(context: Context) =
+            context.packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH) &&
+                context.resources.getBoolean(
+                    com.android.internal.R.bool.config_supportLongPressPowerWhenNonInteractive
+                )
+    }
+}
 
 /** About: the ro.catalyxx.* properties, whose names are the rows' keys, and the source code. */
 class AboutFragment : LabPageFragment(R.xml.lab_about) {

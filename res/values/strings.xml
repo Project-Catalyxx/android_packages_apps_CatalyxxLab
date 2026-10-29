@@ -54,6 +54,17 @@
     <string name="power_menu_title">Power menu</string>
     <string name="power_menu_summary">Menu items and advanced restart</string>
     <string name="power_menu_keywords">power button, power off, shut down, shutdown, restart, reboot, advanced restart, advanced reboot, reboot to recovery, recovery, bootloader, screenshot, airplane mode, user switcher, bug report, emergency, device controls, global actions</string>
+    <!-- Long press power for torch (LineageOS's, also on its Buttons page) -->
+    <string name="torch_title">Hold power for torch</string>
+    <string name="torch_summary">With the screen off, hold the power button to turn the torch on</string>
+    <string name="torch_keywords">torch, flashlight, flash light, long press power, long press for torch, hold power button, power button torch, light</string>
+    <string name="torch_timeout_title">Turn torch off automatically</string>
+    <string name="torch_timeout_keywords">torch timeout, flashlight timeout, torch off, flashlight off</string>
+    <string name="torch_timeout_never">Never</string>
+    <string name="torch_timeout_1min">After 1 minute</string>
+    <string name="torch_timeout_2min">After 2 minutes</string>
+    <string name="torch_timeout_5min">After 5 minutes</string>
+    <string name="torch_timeout_10min">After 10 minutes</string>
     <!-- Font picker (opens in Settings) -->
     <string name="fonts_title">Fonts</string>
     <string name="fonts_summary">The font used across the system and apps</string>

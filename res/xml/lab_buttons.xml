@@ -21,4 +21,26 @@
             android:targetPackage="org.lineageos.lineageparts"
             android:targetClass="org.lineageos.lineageparts.PartsActivity" />
     </Preference>
+
+    <!-- LineageOS's long press power for torch, as on LineageParts' Buttons page: both
+         pages share its LineageSettings.System keys. ButtonsFragment hides the rows where
+         the gesture can't work. -->
+    <lineageos.preference.LineageSystemSettingSwitchPreference
+        android:key="torch_long_press_power_gesture"
+        android:title="@string/torch_title"
+        app:keywords="@string/torch_keywords"
+        android:summary="@string/torch_summary"
+        android:icon="@drawable/ic_torch"
+        android:defaultValue="false" />
+
+    <!-- Seconds until the torch turns itself off; 0 is never -->
+    <lineageos.preference.LineageSystemSettingListPreference
+        android:key="torch_long_press_power_timeout"
+        android:title="@string/torch_timeout_title"
+        app:keywords="@string/torch_timeout_keywords"
+        android:entries="@array/torch_timeout_entries"
+        android:entryValues="@array/torch_timeout_values"
+        android:defaultValue="0"
+        android:dependency="torch_long_press_power_gesture"
+        app:useSimpleSummaryProvider="true" />
 </PreferenceScreen>

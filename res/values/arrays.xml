@@ -65,4 +65,20 @@
         <item>#FFE91E63</item>
         <item>#FFFFFFFF</item>
     </string-array>
+
+    <!-- LineageSettings.System.TORCH_LONG_PRESS_POWER_TIMEOUT, in seconds -->
+    <string-array name="torch_timeout_entries" translatable="false">
+        <item>@string/torch_timeout_never</item>
+        <item>@string/torch_timeout_1min</item>
+        <item>@string/torch_timeout_2min</item>
+        <item>@string/torch_timeout_5min</item>
+        <item>@string/torch_timeout_10min</item>
+    </string-array>
+    <string-array name="torch_timeout_values" translatable="false">
+        <item>0</item>
+        <item>60</item>
+        <item>120</item>
+        <item>300</item>
+        <item>600</item>
+    </string-array>
 </resources>

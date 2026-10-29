@@ -79,6 +79,11 @@ class LabSearchIndexablesProvider : SearchIndexablesProvider() {
             if (!CROSS_WINDOW_BLUR_SUPPORTED) {
                 addRow(arrayOf<Any?>(UserInterfaceFragment.KEY_BLUR_EFFECTS))
             }
+            // and the torch rows only where the power button can turn the torch on
+            if (!ButtonsFragment.isTorchGestureSupported(requireContext())) {
+                addRow(arrayOf<Any?>(ButtonsFragment.KEY_TORCH_GESTURE))
+                addRow(arrayOf<Any?>(ButtonsFragment.KEY_TORCH_TIMEOUT))
+            }
         }
 
     private companion object {
