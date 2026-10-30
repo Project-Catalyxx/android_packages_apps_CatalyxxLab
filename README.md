@@ -18,7 +18,7 @@ Matrixx Lab's, recolored to Catalyxx's purples with
 |---|---|---|
 | Status bar | `lab_status_bar.xml` | nothing yet |
 | Quick settings | `lab_quick_settings.xml` | `Settings.System.QS_COLOR_POP` |
-| User interface | `lab_user_interface.xml` | nothing yet |
+| User interface | `lab_user_interface.xml` | opens Settings' Fonts and Home app pages; `Settings.Global.DISABLE_WINDOW_BLURS`, `WINDOW_ANIMATION_SCALE`, `TRANSITION_ANIMATION_SCALE`, `ANIMATOR_DURATION_SCALE` |
 | Lock screen | `lab_lockscreen.xml` | nothing yet |
 | Misc | `lab_misc.xml` | opens Settings' Spoofing page |
 | Sound | `lab_sound.xml` | `Settings.System.VOLUME_SLIDER_GRADIENT`, `CUSTOM_GRADIENT_COLOR_MODE`, `CUSTOM_GRADIENT_START_COLOR`, `CUSTOM_GRADIENT_END_COLOR`, `SHOW_VOLUME_PERCENTAGE`; `Settings.Secure.VOLUME_DIALOG_HAPTIC_FEEDBACK` |

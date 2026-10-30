@@ -78,6 +78,19 @@
     <string name="blur_effects_summary">Blur behind the shade, quick settings, dialogs and the launcher</string>
     <string name="blur_effects_battery_saver_summary">Off while Battery Saver is on</string>
     <string name="blur_effects_keywords">blur, window blur, background blur, blurry, transparency, translucent, frosted glass, reduce blur, disable blur</string>
+    <!-- Animation speed: Developer options' window, transition and animator duration scales -->
+    <string name="animation_speed_title">Animation speed</string>
+    <string name="animation_speed_keywords">animations, animation scale, window animation scale, transition animation scale, animator duration scale, faster animations, speed up, snappy, remove animations, disable animations, no animations, reduce motion</string>
+    <string name="animation_speed_slower">Slower</string>
+    <string name="animation_speed_faster">Faster</string>
+    <string name="animation_speed_very_slow">Very slow</string>
+    <string name="animation_speed_slow">Slow</string>
+    <string name="animation_speed_normal">Normal</string>
+    <string name="animation_speed_fast">Fast</string>
+    <string name="animation_speed_very_fast">Very fast</string>
+    <string name="animation_speed_fastest">Fastest</string>
+    <string name="animation_speed_off">Off</string>
+    <string name="animation_speed_custom_summary">Custom, set in Developer options</string>
     <!-- Lock screen customizer (opens in Settings) -->
     <string name="lockscreen_customizer_title">Customize lock screen</string>
     <string name="lockscreen_customizer_summary">Clock style, widgets, Now Playing and weather</string>

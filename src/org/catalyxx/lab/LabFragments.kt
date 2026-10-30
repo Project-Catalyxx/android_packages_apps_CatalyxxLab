@@ -138,18 +138,24 @@ class StatusBarFragment : LabPageFragment(R.xml.lab_status_bar)
 /** Quick settings: Color pop. */
 class QuickSettingsFragment : LabPageFragment(R.xml.lab_quick_settings)
 
-/** User interface: fonts and the home app, which open in Settings, and blur effects. */
+/**
+ * User interface: fonts and the home app, which open in Settings, blur effects and animation
+ * speed.
+ */
 class UserInterfaceFragment : LabPageFragment(R.xml.lab_user_interface) {
 
     override fun onResume() {
         super.onResume()
         // Settings' homepage device card and Accessibility switch the same setting.
         findPreference<BlurEffectsPreference>(KEY_BLUR_EFFECTS)?.refresh()
+        // Developer options and Accessibility's Remove animations change the same scales.
+        findPreference<AnimationSpeedPreference>(KEY_ANIMATION_SPEED)?.refresh()
     }
 
-    // The key is also in LabSearchIndexablesProvider's hidden rows
+    // The blur key is also in LabSearchIndexablesProvider's hidden rows
     internal companion object {
         const val KEY_BLUR_EFFECTS = "blur_effects"
+        const val KEY_ANIMATION_SPEED = "animation_speed"
     }
 }
 

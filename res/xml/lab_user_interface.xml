@@ -36,4 +36,10 @@
         app:keywords="@string/blur_effects_keywords"
         android:summary="@string/blur_effects_summary"
         android:icon="@drawable/ic_blur" />
+    <!-- Developer options' three animation scales, all on one slider -->
+    <org.catalyxx.lab.AnimationSpeedPreference
+        android:key="animation_speed"
+        android:title="@string/animation_speed_title"
+        app:keywords="@string/animation_speed_keywords"
+        android:icon="@drawable/ic_animation" />
 </PreferenceScreen>
