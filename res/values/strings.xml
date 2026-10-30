@@ -71,8 +71,8 @@
     <string name="fonts_keywords">font, font style, typeface, text style, system font, custom font, change font</string>
     <!-- QuickSwitch launcher picker (opens in Settings) -->
     <string name="home_app_title">Home app</string>
-    <string name="home_app_summary">Switch between Launcher3, Pixel Launcher and Lawnchair, recents and gestures included</string>
-    <string name="home_app_keywords">launcher, home screen, default launcher, change launcher, launcher3, pixel launcher, lawnchair, quickswitch, quick switch, recents, recents provider, gestures</string>
+    <string name="home_app_summary">Switch between Catalyxx Launcher, Pixel Launcher and Lawnchair, recents and gestures included</string>
+    <string name="home_app_keywords">launcher, home screen, default launcher, change launcher, catalyxx launcher, launcher3, trebuchet, pixel launcher, lawnchair, quickswitch, quick switch, recents, recents provider, gestures</string>
     <!-- Blur effects: Android's disable_window_blurs, switched the other way round -->
     <string name="blur_effects_title">Blur effects</string>
     <string name="blur_effects_summary">Blur behind the shade, quick settings, dialogs and the launcher</string>
