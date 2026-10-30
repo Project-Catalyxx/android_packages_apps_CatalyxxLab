@@ -43,6 +43,17 @@ class LabActivity :
         return true
     }
 
+    /**
+     * The toolbar's arrow goes back one page, like Back, and closes the Lab only
+     * from the page it opened on. SettingsLib's version also closes it whenever the
+     * back stack ends up empty, which is every return to the front page here: the
+     * front page isn't on the back stack, as Settings has one page per activity.
+     */
+    override fun onNavigateUp(): Boolean {
+        if (!supportFragmentManager.popBackStackImmediate()) finishAfterTransition()
+        return true
+    }
+
     /** Opens the page [name], a fragment class, in place of this one; Back returns here. */
     fun openPage(name: String, args: Bundle? = null) {
         val fragment = supportFragmentManager.fragmentFactory.instantiate(classLoader, name)
