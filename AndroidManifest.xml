@@ -8,6 +8,9 @@
 
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <!-- Buttons' torch rows are LineageSettings.System keys. LineageParts needs no
+         permission for them, as it runs as the system uid; the Lab doesn't. -->
+    <uses-permission android:name="lineageos.permission.WRITE_SETTINGS" />
     <!-- The front page shows the wallpaper behind its clocks -->
     <uses-permission android:name="android.permission.READ_WALLPAPER_INTERNAL" />
     <!-- Sound's vibration sliders play a preview of each step -->
