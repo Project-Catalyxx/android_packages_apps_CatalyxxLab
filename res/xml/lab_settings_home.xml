@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Project Catalyxx
+     SPDX-License-Identifier: Apache-2.0
+
+     The style of Settings' homepage. The keys are the Settings.System values Settings' periodic
+     home reads (PeriodicHome in packages/apps/Settings); defaults match its.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:title="@string/settings_home_title">
+
+    <com.android.settingslib.widget.TopIntroPreference
+        android:key="settings_home_intro"
+        android:title="@string/settings_home_intro" />
+
+    <org.catalyxx.lab.SystemSettingIntListPreference
+        android:key="catalyxx_settings_home_style"
+        android:title="@string/settings_home_style_title"
+        app:keywords="@string/settings_home_keywords"
+        android:entries="@array/settings_home_style_entries"
+        android:entryValues="@array/settings_home_style_values"
+        android:defaultValue="0"
+        app:useSimpleSummaryProvider="true" />
+
+    <!-- SettingsHomeFragment greys it out while Classic is picked -->
+    <lineageos.preference.SystemSettingSwitchPreference
+        android:key="catalyxx_settings_home_live_values"
+        android:title="@string/settings_home_live_values_title"
+        android:summary="@string/settings_home_live_values_summary"
+        android:defaultValue="true" />
+</PreferenceScreen>

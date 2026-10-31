@@ -43,6 +43,13 @@
         app:keywords="@string/glass_keywords"
         android:icon="@drawable/ic_glass"
         android:fragment="org.catalyxx.lab.GlassFragment" />
+    <!-- Settings' homepage style, on its own page; the summary names the style -->
+    <Preference
+        android:key="settings_home"
+        android:title="@string/settings_home_title"
+        app:keywords="@string/settings_home_keywords"
+        android:icon="@drawable/ic_settings_home"
+        android:fragment="org.catalyxx.lab.SettingsHomeFragment" />
     <!-- Developer options' three animation scales, all on one slider -->
     <org.catalyxx.lab.AnimationSpeedPreference
         android:key="animation_speed"

@@ -141,8 +141,8 @@ class StatusBarFragment : LabPageFragment(R.xml.lab_status_bar)
 class QuickSettingsFragment : LabPageFragment(R.xml.lab_quick_settings)
 
 /**
- * User interface: fonts and the home app, which open in Settings, blur effects, the glass page
- * and animation speed.
+ * User interface: fonts and the home app, which open in Settings, blur effects, the glass and
+ * Settings home pages, and animation speed.
  */
 class UserInterfaceFragment : LabPageFragment(R.xml.lab_user_interface) {
 
@@ -163,13 +163,58 @@ class UserInterfaceFragment : LabPageFragment(R.xml.lab_user_interface) {
             if (GlassSettings.isEnabled(requireContext().contentResolver)) R.string.glass_on
             else R.string.glass_off
         )
+        // and from the Settings home page
+        findPreference<Preference>(KEY_SETTINGS_HOME)?.setSummary(
+            if (SettingsHomeFragment.isClassic(requireContext())) {
+                R.string.settings_home_style_classic
+            } else {
+                R.string.settings_home_style_strips
+            }
+        )
     }
 
     // The blur and glass keys are also in LabSearchIndexablesProvider's hidden rows
     internal companion object {
         const val KEY_BLUR_EFFECTS = "blur_effects"
         const val KEY_GLASS = "glass"
+        const val KEY_SETTINGS_HOME = "settings_home"
         const val KEY_ANIMATION_SPEED = "animation_speed"
+    }
+}
+
+/**
+ * Settings home: the style of Settings' homepage, Classic or the periodic home, and the periodic
+ * home's live values. Settings reads the same Settings.System values (PeriodicHome there).
+ */
+class SettingsHomeFragment : LabPageFragment(R.xml.lab_settings_home) {
+
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        super.onCreatePreferences(savedInstanceState, rootKey)
+        findPreference<Preference>(KEY_STYLE)?.setOnPreferenceChangeListener { _, newValue ->
+            showPeriodicOptions((newValue as String).toIntOrNull() != STYLE_CLASSIC)
+            true
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        showPeriodicOptions(!isClassic(requireContext()))
+    }
+
+    // The periodic home's options wait while Classic is picked
+    private fun showPeriodicOptions(periodic: Boolean) {
+        findPreference<Preference>(KEY_LIVE_VALUES)?.isEnabled = periodic
+    }
+
+    internal companion object {
+        const val KEY_STYLE = "catalyxx_settings_home_style"
+        const val KEY_LIVE_VALUES = "catalyxx_settings_home_live_values"
+        const val STYLE_CLASSIC = 0
+
+        /** Whether Settings shows its Classic homepage, the default. */
+        fun isClassic(context: Context) =
+            Settings.System.getInt(context.contentResolver, KEY_STYLE, STYLE_CLASSIC) ==
+                STYLE_CLASSIC
     }
 }
 

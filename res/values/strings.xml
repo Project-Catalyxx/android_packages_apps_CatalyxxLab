@@ -130,6 +130,15 @@
     <string name="glass_solid_in_battery_saver_title">Solid in Battery Saver</string>
     <string name="glass_solid_in_battery_saver_summary_on">Plain panels while Battery Saver is on</string>
     <string name="glass_solid_in_battery_saver_summary_off">Glass stays on in Battery Saver, and so does blur in apps</string>
+    <!-- Settings home: the style of Settings' homepage (PeriodicHome in packages/apps/Settings) -->
+    <string name="settings_home_title">Settings home</string>
+    <string name="settings_home_keywords">settings homepage, periodic table, elements, settings layout, settings style</string>
+    <string name="settings_home_intro">Draws the Settings homepage as a periodic table: each area of Settings is an element with a live value, under a card for your phone.</string>
+    <string name="settings_home_style_title">Style</string>
+    <string name="settings_home_style_classic">Classic</string>
+    <string name="settings_home_style_strips">Periodic strips</string>
+    <string name="settings_home_live_values_title">Live values</string>
+    <string name="settings_home_live_values_summary">Battery, Wi-Fi, location and more on the elements</string>
     <!-- Lock screen customizer (opens in Settings) -->
     <string name="lockscreen_customizer_title">Customize lock screen</string>
     <string name="lockscreen_customizer_summary">Clock style, widgets, Now Playing and weather</string>
