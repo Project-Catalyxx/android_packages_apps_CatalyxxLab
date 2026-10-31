@@ -10,6 +10,7 @@ import android.os.PowerManager
 import android.provider.Settings
 import android.util.AttributeSet
 import android.view.CrossWindowBlurListeners.CROSS_WINDOW_BLUR_SUPPORTED
+import com.android.internal.util.catalyxx.GlassSettings
 import lineageos.preference.SelfRemovingSwitchPreference
 
 /**
@@ -33,7 +34,10 @@ class BlurEffectsPreference(context: Context, attrs: AttributeSet?) :
     /** Reads the setting again, and greys the switch out while Battery Saver keeps blur off. */
     fun refresh() {
         isChecked = getBoolean(key, true)
-        val batterySaver = context.getSystemService(PowerManager::class.java).isPowerSaveMode
+        // Glass can keep blur on in Battery Saver (its 'Solid in Battery Saver' off)
+        val batterySaver =
+            context.getSystemService(PowerManager::class.java).isPowerSaveMode &&
+                !GlassSettings.keepsBlurInBatterySaver(context.contentResolver)
         isEnabled = !batterySaver
         setSummary(
             if (batterySaver) R.string.blur_effects_battery_saver_summary

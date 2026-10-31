@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Project Catalyxx
+     SPDX-License-Identifier: Apache-2.0
+
+     Catalyxx's system glass. The keys are GlassSettings' Settings.Global keys
+     (frameworks/base), which SystemUI and system_server read; defaults match theirs.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:title="@string/glass_title">
+
+    <com.android.settingslib.widget.TopIntroPreference
+        android:key="glass_intro"
+        android:title="@string/glass_intro" />
+
+    <!-- Only while Blur effects is off: glass can't show without it -->
+    <Preference
+        android:key="glass_needs_blur"
+        android:title="@string/glass_needs_blur_title"
+        android:summary="@string/glass_needs_blur_summary"
+        android:icon="@drawable/ic_blur"
+        app:isPreferenceVisible="false" />
+
+    <!-- GlassFragment words the title as "Use <name>"; search finds it by the name -->
+    <lineageos.preference.GlobalSettingMainSwitchPreference
+        android:key="catalyxx_glass_enabled"
+        android:title="@string/glass_title"
+        app:keywords="@string/glass_keywords"
+        android:defaultValue="false" />
+
+    <PreferenceCategory
+        android:key="glass_look_category"
+        android:title="@string/glass_look_title"
+        android:dependency="catalyxx_glass_enabled">
+
+        <org.catalyxx.lab.GlassStrengthPreference
+            android:key="catalyxx_glass_blur_strength"
+            android:title="@string/glass_blur_strength_title"
+            app:keywords="@string/glass_blur_strength_keywords" />
+    </PreferenceCategory>
+
+    <!-- Where glass shows. More places come with later glass work. -->
+    <PreferenceCategory
+        android:key="glass_places_category"
+        android:title="@string/glass_places_title"
+        android:dependency="catalyxx_glass_enabled">
+
+        <lineageos.preference.GlobalSettingSwitchPreference
+            android:key="catalyxx_glass_shade"
+            android:title="@string/glass_place_shade_title"
+            android:defaultValue="true" />
+
+        <lineageos.preference.GlobalSettingSwitchPreference
+            android:key="catalyxx_glass_lockscreen"
+            android:title="@string/glass_place_lockscreen_title"
+            android:summary="@string/glass_place_lockscreen_summary"
+            android:defaultValue="true" />
+
+        <lineageos.preference.GlobalSettingSwitchPreference
+            android:key="catalyxx_glass_volume"
+            android:title="@string/glass_place_volume_title"
+            android:summary="@string/glass_place_volume_summary"
+            android:defaultValue="true" />
+
+        <lineageos.preference.GlobalSettingSwitchPreference
+            android:key="catalyxx_glass_power_menu"
+            android:title="@string/glass_place_power_menu_title"
+            android:defaultValue="true" />
+
+        <lineageos.preference.GlobalSettingSwitchPreference
+            android:key="catalyxx_glass_dialogs"
+            android:title="@string/glass_place_dialogs_title"
+            android:summary="@string/glass_place_dialogs_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="glass_battery_category"
+        android:title="@string/glass_battery_title"
+        android:dependency="catalyxx_glass_enabled">
+
+        <lineageos.preference.GlobalSettingSwitchPreference
+            android:key="catalyxx_glass_solid_in_battery_saver"
+            android:title="@string/glass_solid_in_battery_saver_title"
+            android:summaryOn="@string/glass_solid_in_battery_saver_summary_on"
+            android:summaryOff="@string/glass_solid_in_battery_saver_summary_off"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

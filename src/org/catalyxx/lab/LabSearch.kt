@@ -13,6 +13,7 @@ import android.provider.SearchIndexablesContract.NON_INDEXABLES_KEYS_COLUMNS
 import android.provider.SearchIndexablesProvider
 import android.view.CrossWindowBlurListeners.CROSS_WINDOW_BLUR_SUPPORTED
 import androidx.annotation.XmlRes
+import com.android.internal.util.catalyxx.GlassSettings
 
 /** Names the row a Settings search result was found in (Settings' own extra). */
 const val EXTRA_FRAGMENT_ARG_KEY = ":settings:fragment_args_key"
@@ -26,6 +27,7 @@ enum class LabPage(@XmlRes val xml: Int, val fragment: Class<out LabPageFragment
     STATUS_BAR(R.xml.lab_status_bar, StatusBarFragment::class.java),
     QUICK_SETTINGS(R.xml.lab_quick_settings, QuickSettingsFragment::class.java),
     USER_INTERFACE(R.xml.lab_user_interface, UserInterfaceFragment::class.java),
+    GLASS(R.xml.lab_glass, GlassFragment::class.java),
     LOCKSCREEN(R.xml.lab_lockscreen, LockscreenFragment::class.java),
     SOUND(R.xml.lab_sound, SoundFragment::class.java),
     NOTIFICATIONS(R.xml.lab_notifications, NotificationsFragment::class.java),
@@ -75,9 +77,13 @@ class LabSearchIndexablesProvider : SearchIndexablesProvider() {
             for (key in NON_INDEXABLE_KEYS) {
                 addRow(arrayOf<Any?>(key))
             }
-            // Blur effects only shows on a device with system blur
+            // Blur effects and glass only show on a device with system blur
             if (!CROSS_WINDOW_BLUR_SUPPORTED) {
                 addRow(arrayOf<Any?>(UserInterfaceFragment.KEY_BLUR_EFFECTS))
+                addRow(arrayOf<Any?>(UserInterfaceFragment.KEY_GLASS))
+                for (key in GlassSettings.KEYS) {
+                    addRow(arrayOf<Any?>(key))
+                }
             }
             // and the torch rows only where the power button can turn the torch on
             if (!ButtonsFragment.isTorchGestureSupported(requireContext())) {
@@ -94,6 +100,8 @@ class LabSearchIndexablesProvider : SearchIndexablesProvider() {
                 "lab_intro",
                 "lab_dashboard",
                 "about_intro",
+                "glass_intro",
+                GlassFragment.KEY_NEEDS_BLUR,
                 "coming_soon",
                 SoundFragment.KEY_START_COLOR,
                 SoundFragment.KEY_END_COLOR,

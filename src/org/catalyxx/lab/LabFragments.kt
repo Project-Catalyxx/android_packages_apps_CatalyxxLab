@@ -10,6 +10,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.SystemProperties
 import android.provider.Settings
+import android.view.CrossWindowBlurListeners.CROSS_WINDOW_BLUR_SUPPORTED
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.IdRes
@@ -24,6 +25,7 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.TwoStatePreference
 import com.airbnb.lottie.LottieAnimationView
 import com.airbnb.lottie.LottieDrawable
+import com.android.internal.util.catalyxx.GlassSettings
 import com.android.settingslib.widget.LayoutPreference
 import lineageos.providers.LineageSettings
 
@@ -139,10 +141,16 @@ class StatusBarFragment : LabPageFragment(R.xml.lab_status_bar)
 class QuickSettingsFragment : LabPageFragment(R.xml.lab_quick_settings)
 
 /**
- * User interface: fonts and the home app, which open in Settings, blur effects and animation
- * speed.
+ * User interface: fonts and the home app, which open in Settings, blur effects, the glass page
+ * and animation speed.
  */
 class UserInterfaceFragment : LabPageFragment(R.xml.lab_user_interface) {
+
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        super.onCreatePreferences(savedInstanceState, rootKey)
+        // Glass is blur, so like Blur effects it needs a device with system blur
+        findPreference<Preference>(KEY_GLASS)?.isVisible = CROSS_WINDOW_BLUR_SUPPORTED
+    }
 
     override fun onResume() {
         super.onResume()
@@ -150,12 +158,65 @@ class UserInterfaceFragment : LabPageFragment(R.xml.lab_user_interface) {
         findPreference<BlurEffectsPreference>(KEY_BLUR_EFFECTS)?.refresh()
         // Developer options and Accessibility's Remove animations change the same scales.
         findPreference<AnimationSpeedPreference>(KEY_ANIMATION_SPEED)?.refresh()
+        // Back from the glass page
+        findPreference<Preference>(KEY_GLASS)?.setSummary(
+            if (GlassSettings.isEnabled(requireContext().contentResolver)) R.string.glass_on
+            else R.string.glass_off
+        )
     }
 
-    // The blur key is also in LabSearchIndexablesProvider's hidden rows
+    // The blur and glass keys are also in LabSearchIndexablesProvider's hidden rows
     internal companion object {
         const val KEY_BLUR_EFFECTS = "blur_effects"
+        const val KEY_GLASS = "glass"
         const val KEY_ANIMATION_SPEED = "animation_speed"
+    }
+}
+
+/**
+ * The glass page: Catalyxx's system glass ([GlassSettings]) on or off, how much it blurs, where
+ * it shows, and Battery Saver. Glass needs Blur effects, so while that's off the page offers to
+ * turn it on and the rest waits.
+ */
+class GlassFragment : LabPageFragment(R.xml.lab_glass) {
+
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        super.onCreatePreferences(savedInstanceState, rootKey)
+        findPreference<Preference>(GlassSettings.ENABLED)?.title =
+            getString(R.string.glass_main_switch_title, getString(R.string.glass_title))
+        findPreference<Preference>(KEY_NEEDS_BLUR)?.setOnPreferenceClickListener {
+            Settings.Global.putInt(
+                requireContext().contentResolver,
+                Settings.Global.DISABLE_WINDOW_BLURS,
+                0,
+            )
+            refresh()
+            true
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        refresh()
+    }
+
+    /** Reads what can also change elsewhere: Blur effects and the strength. */
+    private fun refresh() {
+        val isBlurOn =
+            Settings.Global.getInt(
+                requireContext().contentResolver,
+                Settings.Global.DISABLE_WINDOW_BLURS,
+                0,
+            ) == 0
+        findPreference<Preference>(KEY_NEEDS_BLUR)?.isVisible = !isBlurOn
+        // The rest of the page depends on the main switch, so it waits too
+        findPreference<Preference>(GlassSettings.ENABLED)?.isEnabled = isBlurOn
+        findPreference<GlassStrengthPreference>(GlassSettings.BLUR_STRENGTH)?.refresh()
+    }
+
+    // Also in LabSearchIndexablesProvider's hidden rows
+    internal companion object {
+        const val KEY_NEEDS_BLUR = "glass_needs_blur"
     }
 }
 

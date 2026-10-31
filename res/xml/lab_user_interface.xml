@@ -36,6 +36,13 @@
         app:keywords="@string/blur_effects_keywords"
         android:summary="@string/blur_effects_summary"
         android:icon="@drawable/ic_blur" />
+    <!-- Catalyxx's system glass, on its own page; the summary says on or off -->
+    <Preference
+        android:key="glass"
+        android:title="@string/glass_title"
+        app:keywords="@string/glass_keywords"
+        android:icon="@drawable/ic_glass"
+        android:fragment="org.catalyxx.lab.GlassFragment" />
     <!-- Developer options' three animation scales, all on one slider -->
     <org.catalyxx.lab.AnimationSpeedPreference
         android:key="animation_speed"

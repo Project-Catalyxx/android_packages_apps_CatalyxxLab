@@ -91,6 +91,35 @@
     <string name="animation_speed_fastest">Fastest</string>
     <string name="animation_speed_off">Off</string>
     <string name="animation_speed_custom_summary">Custom, set in Developer options</string>
+    <!-- System glass (GlassSettings in frameworks/base). The feature's name is only in
+         glass_title; the other strings say "glass" so a rename is one line. -->
+    <string name="glass_title">Liquid Glass</string>
+    <string name="glass_keywords">glass, liquid glass, glassmorphism, frosted, see-through, translucent, transparent panels, blur</string>
+    <string name="glass_on">On</string>
+    <string name="glass_off">Off</string>
+    <string name="glass_intro">Turns system panels into frosted glass, so what\'s behind them shows through, blurred. Glass switches itself off when the phone gets hot.</string>
+    <!-- %1$s is glass_title -->
+    <string name="glass_main_switch_title">Use %1$s</string>
+    <string name="glass_needs_blur_title">Blur effects is off</string>
+    <string name="glass_needs_blur_summary">Glass needs it. Tap to turn it on.</string>
+    <string name="glass_look_title">Look</string>
+    <string name="glass_blur_strength_title">Blur strength</string>
+    <string name="glass_blur_strength_keywords">glass blur, blur radius, frosted, haze, softness</string>
+    <string name="glass_blur_strength_light">Light haze</string>
+    <string name="glass_blur_strength_frosted">Frosted</string>
+    <string name="glass_places_title">Glass on</string>
+    <string name="glass_place_shade_title">Quick Settings and shade</string>
+    <string name="glass_place_lockscreen_title">Lock screen</string>
+    <string name="glass_place_lockscreen_summary">Shortcuts and the fingerprint button</string>
+    <string name="glass_place_volume_title">Volume panel</string>
+    <string name="glass_place_volume_summary">What pops up when you press a volume button</string>
+    <string name="glass_place_power_menu_title">Power menu</string>
+    <string name="glass_place_dialogs_title">Menus and dialogs</string>
+    <string name="glass_place_dialogs_summary">Pop-ups such as Internet, Bluetooth and the full volume settings</string>
+    <string name="glass_battery_title">Battery</string>
+    <string name="glass_solid_in_battery_saver_title">Solid in Battery Saver</string>
+    <string name="glass_solid_in_battery_saver_summary_on">Plain panels while Battery Saver is on</string>
+    <string name="glass_solid_in_battery_saver_summary_off">Glass stays on in Battery Saver, and so does blur in apps</string>
     <!-- Lock screen customizer (opens in Settings) -->
     <string name="lockscreen_customizer_title">Customize lock screen</string>
     <string name="lockscreen_customizer_summary">Clock style, widgets, Now Playing and weather</string>
