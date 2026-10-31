@@ -94,6 +94,18 @@
         <item>2</item>
     </string-array>
 
+    <!-- GlassSettings.STYLE_CLEAR, STYLE_FROSTED and STYLE_FLAT -->
+    <string-array name="glass_style_entries" translatable="false">
+        <item>@string/glass_style_clear</item>
+        <item>@string/glass_style_frosted</item>
+        <item>@string/glass_style_flat</item>
+    </string-array>
+    <string-array name="glass_style_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>0</item>
+    </string-array>
+
     <!-- Settings.System catalyxx_settings_home_style: PeriodicHome.STYLE_CLASSIC and
          STYLE_STRIPS in Settings -->
     <string-array name="settings_home_style_entries" translatable="false">

@@ -102,7 +102,7 @@
     <string name="glass_keywords">glass, liquid glass, glassmorphism, frosted, see-through, translucent, transparent panels, blur</string>
     <string name="glass_on">On</string>
     <string name="glass_off">Off</string>
-    <string name="glass_intro">Turns system panels into frosted glass, so what\'s behind them shows through, blurred. Glass switches itself off when the phone gets hot.</string>
+    <string name="glass_intro">Turns system panels into glass, so what\'s behind them shows through. Glass switches itself off when the phone gets hot.</string>
     <!-- %1$s is glass_title -->
     <string name="glass_main_switch_title">Use %1$s</string>
     <string name="glass_needs_blur_title">Blur effects is off</string>
@@ -122,6 +122,35 @@
     <string name="glass_blur_strength_keywords">glass blur, blur radius, frosted, haze, softness</string>
     <string name="glass_blur_strength_light">Light haze</string>
     <string name="glass_blur_strength_frosted">Frosted</string>
+    <string name="glass_rim_title">Curved rim</string>
+    <string name="glass_rim_note">So far only the volume panel has the curved rim. Other places stay flat glass.</string>
+    <string name="glass_style_title">Style</string>
+    <string name="glass_style_keywords">glass style, wet look, clear glass, frosted glass, liquid, flat</string>
+    <string name="glass_style_clear">Clear</string>
+    <string name="glass_style_frosted">Frosted</string>
+    <string name="glass_style_flat">Flat, no rim</string>
+    <string name="glass_bend_title">Edge bend</string>
+    <string name="glass_bend_keywords">refraction, lens, bend, distortion, wet look</string>
+    <string name="glass_bend_flat">Flat</string>
+    <string name="glass_bend_strong">Strong</string>
+    <string name="glass_rim_width_title">Rim width</string>
+    <string name="glass_rim_width_keywords">edge width, bevel, rim size</string>
+    <string name="glass_rim_width_thin">Thin</string>
+    <string name="glass_rim_width_wide">Wide</string>
+    <!-- %1$d is the rim's width in dp -->
+    <string name="glass_rim_width_summary">%1$d dp</string>
+    <string name="glass_rim_light_title">Rim light</string>
+    <string name="glass_rim_light_keywords">highlight, shine, edge light, glow, reflection</string>
+    <string name="glass_rim_light_none">None</string>
+    <string name="glass_rim_light_bright">Bright</string>
+    <string name="glass_rainbow_title">Rainbow edges</string>
+    <string name="glass_rainbow_keywords">dispersion, prism, chromatic, color fringe, iridescent</string>
+    <string name="glass_rainbow_none">None</string>
+    <string name="glass_rainbow_vivid">Vivid</string>
+    <string name="glass_shadow_title">Shadow</string>
+    <string name="glass_shadow_keywords">glass shadow, drop shadow, depth</string>
+    <string name="glass_shadow_none">None</string>
+    <string name="glass_shadow_dark">Dark</string>
     <string name="glass_places_title">Glass on</string>
     <string name="glass_place_shade_title">Quick Settings and shade</string>
     <string name="glass_place_lockscreen_title">Lock screen</string>

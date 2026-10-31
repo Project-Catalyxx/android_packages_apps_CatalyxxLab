@@ -55,6 +55,54 @@
             app:keywords="@string/glass_blur_strength_keywords" />
     </PreferenceCategory>
 
+    <!-- Glass with a curved rim (GlassSettings.look()). The sliders wait while the style is
+         Flat, which draws no rim. -->
+    <PreferenceCategory
+        android:key="glass_rim_category"
+        android:title="@string/glass_rim_title"
+        android:dependency="catalyxx_glass_enabled">
+
+        <org.catalyxx.lab.GlobalSettingIntListPreference
+            android:key="catalyxx_glass_style"
+            android:title="@string/glass_style_title"
+            app:keywords="@string/glass_style_keywords"
+            android:entries="@array/glass_style_entries"
+            android:entryValues="@array/glass_style_values"
+            android:defaultValue="1"
+            app:useSimpleSummaryProvider="true" />
+
+        <org.catalyxx.lab.GlassBendPreference
+            android:key="catalyxx_glass_bend"
+            android:title="@string/glass_bend_title"
+            app:keywords="@string/glass_bend_keywords" />
+
+        <org.catalyxx.lab.GlassRimWidthPreference
+            android:key="catalyxx_glass_rim_width"
+            android:title="@string/glass_rim_width_title"
+            app:keywords="@string/glass_rim_width_keywords" />
+
+        <org.catalyxx.lab.GlassRimLightPreference
+            android:key="catalyxx_glass_rim_light"
+            android:title="@string/glass_rim_light_title"
+            app:keywords="@string/glass_rim_light_keywords" />
+
+        <org.catalyxx.lab.GlassRainbowPreference
+            android:key="catalyxx_glass_rainbow"
+            android:title="@string/glass_rainbow_title"
+            app:keywords="@string/glass_rainbow_keywords" />
+
+        <org.catalyxx.lab.GlassShadowPreference
+            android:key="catalyxx_glass_shadow"
+            android:title="@string/glass_shadow_title"
+            app:keywords="@string/glass_shadow_keywords" />
+
+        <!-- Which places have the rim so far -->
+        <Preference
+            android:key="glass_rim_note"
+            android:summary="@string/glass_rim_note"
+            android:selectable="false" />
+    </PreferenceCategory>
+
     <!-- Where glass shows. More places come with later glass work. -->
     <PreferenceCategory
         android:key="glass_places_category"

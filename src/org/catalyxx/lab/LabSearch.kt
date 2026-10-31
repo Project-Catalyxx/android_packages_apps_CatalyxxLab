@@ -103,6 +103,7 @@ class LabSearchIndexablesProvider : SearchIndexablesProvider() {
                 "about_intro",
                 "glass_intro",
                 GlassFragment.KEY_NEEDS_BLUR,
+                GlassFragment.KEY_RIM_NOTE,
                 "settings_home_intro",
                 "coming_soon",
                 SoundFragment.KEY_START_COLOR,

@@ -234,6 +234,11 @@ class GlassFragment : LabPageFragment(R.xml.lab_glass) {
             listView.post { findPreference<GlassTintPreference>(GlassSettings.TINT)?.refresh() }
             true
         }
+        findPreference<Preference>(GlassSettings.STYLE)?.setOnPreferenceChangeListener { _, _ ->
+            // Flat draws no rim, so the rim sliders wait while it's picked
+            listView.post { refreshRimSliders() }
+            true
+        }
         findPreference<Preference>(KEY_NEEDS_BLUR)?.setOnPreferenceClickListener {
             Settings.Global.putInt(
                 requireContext().contentResolver,
@@ -263,11 +268,28 @@ class GlassFragment : LabPageFragment(R.xml.lab_glass) {
         findPreference<Preference>(GlassSettings.ENABLED)?.isEnabled = isBlurOn
         findPreference<GlassTintPreference>(GlassSettings.TINT)?.refresh()
         findPreference<GlassStrengthPreference>(GlassSettings.BLUR_STRENGTH)?.refresh()
+        refreshRimSliders()
+    }
+
+    private fun refreshRimSliders() {
+        for (key in RIM_SLIDER_KEYS) {
+            findPreference<GlassRimSliderPreference>(key)?.refresh()
+        }
     }
 
     // Also in LabSearchIndexablesProvider's hidden rows
     internal companion object {
         const val KEY_NEEDS_BLUR = "glass_needs_blur"
+        const val KEY_RIM_NOTE = "glass_rim_note"
+
+        private val RIM_SLIDER_KEYS =
+            arrayOf(
+                GlassSettings.BEND,
+                GlassSettings.RIM_WIDTH,
+                GlassSettings.RIM_LIGHT,
+                GlassSettings.RAINBOW,
+                GlassSettings.SHADOW,
+            )
     }
 }
 
