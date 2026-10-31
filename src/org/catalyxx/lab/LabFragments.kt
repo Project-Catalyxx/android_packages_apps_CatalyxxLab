@@ -174,9 +174,9 @@ class UserInterfaceFragment : LabPageFragment(R.xml.lab_user_interface) {
 }
 
 /**
- * The glass page: Catalyxx's system glass ([GlassSettings]) on or off, how much it blurs, where
- * it shows, and Battery Saver. Glass needs Blur effects, so while that's off the page offers to
- * turn it on and the rest waits.
+ * The glass page: Catalyxx's system glass ([GlassSettings]) on or off, its color and tint, how
+ * much it blurs, where it shows, and Battery Saver. Glass needs Blur effects, so while that's off
+ * the page offers to turn it on and the rest waits.
  */
 class GlassFragment : LabPageFragment(R.xml.lab_glass) {
 
@@ -184,6 +184,11 @@ class GlassFragment : LabPageFragment(R.xml.lab_glass) {
         super.onCreatePreferences(savedInstanceState, rootKey)
         findPreference<Preference>(GlassSettings.ENABLED)?.title =
             getString(R.string.glass_main_switch_title, getString(R.string.glass_title))
+        findPreference<Preference>(GlassSettings.COLOR)?.setOnPreferenceChangeListener { _, _ ->
+            // The list writes Settings.Global after this returns; Tint reads it once it has.
+            listView.post { findPreference<GlassTintPreference>(GlassSettings.TINT)?.refresh() }
+            true
+        }
         findPreference<Preference>(KEY_NEEDS_BLUR)?.setOnPreferenceClickListener {
             Settings.Global.putInt(
                 requireContext().contentResolver,
@@ -200,7 +205,7 @@ class GlassFragment : LabPageFragment(R.xml.lab_glass) {
         refresh()
     }
 
-    /** Reads what can also change elsewhere: Blur effects and the strength. */
+    /** Reads what can also change elsewhere: Blur effects and the sliders. */
     private fun refresh() {
         val isBlurOn =
             Settings.Global.getInt(
@@ -211,6 +216,7 @@ class GlassFragment : LabPageFragment(R.xml.lab_glass) {
         findPreference<Preference>(KEY_NEEDS_BLUR)?.isVisible = !isBlurOn
         // The rest of the page depends on the main switch, so it waits too
         findPreference<Preference>(GlassSettings.ENABLED)?.isEnabled = isBlurOn
+        findPreference<GlassTintPreference>(GlassSettings.TINT)?.refresh()
         findPreference<GlassStrengthPreference>(GlassSettings.BLUR_STRENGTH)?.refresh()
     }
 

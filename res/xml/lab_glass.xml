@@ -34,6 +34,21 @@
         android:title="@string/glass_look_title"
         android:dependency="catalyxx_glass_enabled">
 
+        <!-- Android default keeps Android's own tint, so Tint waits while it's picked -->
+        <org.catalyxx.lab.GlobalSettingIntListPreference
+            android:key="catalyxx_glass_color"
+            android:title="@string/glass_color_title"
+            app:keywords="@string/glass_color_keywords"
+            android:entries="@array/glass_color_entries"
+            android:entryValues="@array/glass_color_values"
+            android:defaultValue="0"
+            app:useSimpleSummaryProvider="true" />
+
+        <org.catalyxx.lab.GlassTintPreference
+            android:key="catalyxx_glass_tint"
+            android:title="@string/glass_tint_title"
+            app:keywords="@string/glass_tint_keywords" />
+
         <org.catalyxx.lab.GlassStrengthPreference
             android:key="catalyxx_glass_blur_strength"
             android:title="@string/glass_blur_strength_title"

@@ -43,6 +43,27 @@ constructor(context: Context, attrs: AttributeSet? = null) : ListPreference(cont
     protected open fun fromInt(value: Int): String = value.toString()
 }
 
+/** [SystemSettingIntListPreference] for an int in Settings.Global. */
+class GlobalSettingIntListPreference
+@JvmOverloads
+constructor(context: Context, attrs: AttributeSet? = null) : ListPreference(context, attrs) {
+
+    init {
+        preferenceDataStore =
+            object : PreferenceDataStore() {
+                override fun putString(key: String, value: String?) {
+                    val int = value?.toIntOrNull() ?: return
+                    Settings.Global.putInt(context.contentResolver, key, int)
+                }
+
+                override fun getString(key: String, defValue: String?): String? {
+                    val stored = Settings.Global.getString(context.contentResolver, key)
+                    return stored?.toIntOrNull()?.toString() ?: defValue
+                }
+            }
+    }
+}
+
 /**
  * A color stored as an ARGB int in Settings.System. Entry values are
  * "#AARRGGBB"; a stored color that isn't a preset reads "Custom (#RRGGBB)".

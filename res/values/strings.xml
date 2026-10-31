@@ -103,6 +103,16 @@
     <string name="glass_needs_blur_title">Blur effects is off</string>
     <string name="glass_needs_blur_summary">Glass needs it. Tap to turn it on.</string>
     <string name="glass_look_title">Look</string>
+    <string name="glass_color_title">Glass color</string>
+    <string name="glass_color_keywords">glass tint, tint color, white glass, colored glass, accent</string>
+    <string name="glass_color_frosted">Frosted white</string>
+    <string name="glass_color_theme">Theme color</string>
+    <string name="glass_color_android">Android default</string>
+    <string name="glass_tint_title">Tint</string>
+    <string name="glass_tint_keywords">glass opacity, see-through, transparency, clear glass, solid</string>
+    <string name="glass_tint_clear">Clear</string>
+    <string name="glass_tint_solid">Solid</string>
+    <string name="glass_tint_android_summary">Android default has its own tint</string>
     <string name="glass_blur_strength_title">Blur strength</string>
     <string name="glass_blur_strength_keywords">glass blur, blur radius, frosted, haze, softness</string>
     <string name="glass_blur_strength_light">Light haze</string>

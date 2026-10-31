@@ -81,4 +81,16 @@
         <item>300</item>
         <item>600</item>
     </string-array>
+
+    <!-- GlassSettings.COLOR_FROSTED, COLOR_THEME and COLOR_ANDROID -->
+    <string-array name="glass_color_entries" translatable="false">
+        <item>@string/glass_color_frosted</item>
+        <item>@string/glass_color_theme</item>
+        <item>@string/glass_color_android</item>
+    </string-array>
+    <string-array name="glass_color_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>
