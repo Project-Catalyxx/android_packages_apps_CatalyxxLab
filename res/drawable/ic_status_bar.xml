@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Project Catalyxx
+     SPDX-License-Identifier: Apache-2.0
+
+     A phone with its status bar filled in at the top.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="?android:attr/colorControlNormal">
+    <path
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="1.8"
+        android:pathData="M8,2.9H16A2.1,2.1 0,0 1,18.1 5V19A2.1,2.1 0,0 1,16 21.1H8A2.1,2.1 0,0 1,5.9 19V5A2.1,2.1 0,0 1,8 2.9Z" />
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M7.8,5.2H16.2V8.2H7.8Z" />
+</vector>

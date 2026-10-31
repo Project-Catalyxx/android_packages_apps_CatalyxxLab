@@ -32,6 +32,11 @@
     <!-- A page whose section has no features yet -->
     <string name="coming_soon">Nothing here yet. Features for this section land here as Catalyxx adds them.</string>
 
+    <!-- Status bar page: LineageOS's status bar options (opens in LineageParts) -->
+    <string name="status_bar_options_title">Status bar options</string>
+    <string name="status_bar_options_summary">Clock, battery style, icons, network traffic and quick pulldown</string>
+    <string name="status_bar_options_keywords">clock, clock position, seconds, am pm, battery style, battery percentage, status bar icons, network traffic, quick pulldown</string>
+
     <!-- About page; the rows show the ro.catalyxx.* properties -->
     <string name="about_intro">Project Catalyxx</string>
     <string name="about_version">Version</string>
