@@ -123,7 +123,7 @@
     <string name="glass_blur_strength_light">Light haze</string>
     <string name="glass_blur_strength_frosted">Frosted</string>
     <string name="glass_rim_title">Curved rim</string>
-    <string name="glass_rim_note">So far only the volume panel has the curved rim. Other places stay flat glass.</string>
+    <string name="glass_rim_note">So far the volume panel and the lock screen\'s buttons have the curved rim. Other places stay flat glass.</string>
     <string name="glass_style_title">Style</string>
     <string name="glass_style_keywords">glass style, wet look, clear glass, frosted glass, liquid, flat</string>
     <string name="glass_style_clear">Clear</string>
